@@ -1,0 +1,33 @@
+extends head
+block content
+  body.container
+    header
+     include social-nav
+    .row
+      .col-lg-9.col-lg-offset-1.logo
+
+     include nav-bar
+    main
+      h1(align='center', style='margin-bottom: 20px') The Weekly Jarys
+      article
+        .row
+          -if(data.length) 
+             -each box in data
+               .col-lg-3(style='margin-left:')
+                  .info
+                    a(href='histories/id=#{box.id}')
+                      h3#cabeza #{box.title}
+                    p#parrafo
+                      | #{box.summary}
+                  img(src='#{box.url}', alt='fearimage', height='240px', width='240px', style='border-radius: 100%')
+                  .title-post
+                    a(href='histories/id=#{box.id}')
+                     h2(align='center') #{box.title}
+                    p(align='center') #{box.date}
+          -else
+            p Working in that :(
+      include back-footer
+    include footer
+
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')

@@ -1,0 +1,193 @@
+       
+       *{
+        margin:0;
+        padding: 0;
+       }
+
+       .social-media{
+            border-bottom: 1px solid #ECE7E7;
+
+        }
+        
+        .navbar-default{
+            background: none;
+            border: none;
+            border-radius: 0px;
+            border-bottom: 1px solid #ECE7E7;
+        }
+        
+        .social-media-icon{
+            padding: 5px;
+            display: block;
+            height: 53px;
+        }
+        
+        .social-media-icon>div>a>img{
+            width: 37px;
+            height: 37px;
+            margin: 2px;
+            transition: height 0.4s, width 0.4s;
+        }
+
+       .social-media-icon>div>a>img:hover{
+            width: 45px;
+            height: 45px;
+        }
+        
+        
+        .footer-container {
+            border-top: 1px solid #ECE7E7;
+        }
+        
+        .logo{
+            background: url('../png/iso2.png') no-repeat;
+            display: block;
+            height: 400px;
+            width: 800px;
+            margin-left: 190px;
+            margin-top: 10px;
+        }
+
+        .logohistories{
+            background: url('../png/esto.jpg') no-repeat;
+            background-size: ;
+            display: block;
+            height: 400px;
+            width: 800px;
+            margin-left: 264px;
+            margin-top: 10px;
+        }
+
+         .social-media-icon>.navbar{
+            min-height: none;
+            border: none;
+            margin-bottom: 0;
+         }
+
+
+
+        #parrafo{
+            position: absolute;
+            margin-top: 120px;
+            font-size: 11px;
+            margin-left: -10px;
+            -webkit-transition:margin 0.3s;
+            -moz-transition:margin 0.3s;
+        }
+
+        #cabeza{
+            position: absolute;
+            margin-top: 90px;
+            font-size: 15px;
+            margin-left:300px;
+            color: white;
+            -webkit-transition:margin-left 0.3s;
+            -moz-transition:margin-left 0.3s;
+        }
+
+
+        .col-lg-3:hover #parrafo{
+            margin-left: 16px;
+        }
+
+        .col-lg-3:hover #cabeza{
+            margin-left: 10px;
+        }
+
+
+
+        .info{
+            border-radius: 100%;
+            position: absolute;
+            overflow: hidden;
+            height: 240px;
+            width: 240px;
+            background-color: rgba(31,31,31,0.5);
+            -webkit-transition:opacity 0.3s;
+            -moz-transition:opacity 0.3s;
+            opacity: 0;
+            color: white;
+
+        }
+
+
+        .col-lg-3:hover .info{
+            border-radius: 100%;
+            opacity: 1;
+        }
+
+        
+        .biografy-box{
+            border: 2px solid grey;
+            box-shadow:  3px 3px 8px grey;
+            display: block;
+            border-radius:0;
+
+        }
+
+        .title-post>a>h2{
+            font-size: 15px;
+            margin: 5px 0 0 0;
+            color: grey;
+            text-decoration: none
+        }
+        .title-post>a>h2:hover{
+            text-decoration: none
+        }
+
+
+        .title-post>p{
+            font-size: 10px; 
+            color: grey
+        }
+
+        .booknote{
+            background-image: url("../doc/images/aside2.jpg");
+            background-size: cover;
+            padding: 74px 0px 0px 85px;
+        }
+
+        .booknote>div>p{
+           width: 240px;
+           font-size: 11px;  
+        }
+
+
+
+
+        /*TRENDING*/
+    .popular-post{
+    
+     }
+
+    .trending-title, .treding-title:hover{
+        font-size: 15px;
+        color: grey;
+        text-decoration: none
+    }
+
+    .col-lg-12>a{
+        text-decoration: none
+    }
+    .col-lg-12>p{
+        color: grey
+    }
+
+
+    .popular-post>.row>.col-lg-12{
+        border:1px solid grey;
+        margin:2px;  
+        box-shadow: 3px 3px 8px grey;
+    }
+
+
+ 
+ /*UNSELECTABLE*/
+ .contenthistories>div>div>p {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

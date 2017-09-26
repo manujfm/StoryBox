@@ -1,0 +1,32 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Blog de Arlenas",
+  "main": "server.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manujfm/Blog.git"
+  },
+  "keywords": [
+    "Blog"
+  ],
+  "author": "Manuel Marcano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manujfm/Blog/issues"
+  },
+  "homepage": "https://github.com/manujfm/Blog#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.4",
+    "express-method-override": "0.0.3",
+    "jade": "^1.11.0",
+    "mysql": "^2.14.1"
+  }
+}
