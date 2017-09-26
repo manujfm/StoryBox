@@ -1,5 +1,5 @@
 'use strict'
-var BoxController=require("../controlers/controler-box")
+var BoxController=require("../controlers/controler-box"),
     express=require("express"),
     app=express.Router();
 
