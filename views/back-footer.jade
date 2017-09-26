@@ -21,12 +21,12 @@ article(style='margin-top: 100px; padding-top: 40px; border-top: 2px solid grey'
                   | Once, I was walking through the forest of my own mind. There, I found a little flower, a story waiting to be told. Suddenly, while I was staring at it, I realized that there wasn’t only one, but millions of them. They were all waiting to be told. I knew I couldn’t just leave them there, so I put as much as I could fit inside a little chest. I decided to let them grow inside it, so one day, all of them can see the light.
                 p My name is Jarys, and Welcome to my Story Box.
           .col-lg-4.popular-post(style='padding: 5px 25px 25px 25px')
-            h3(align='center') Trending histories
+            h3(align='center') Trending Stories
             .row
               -if(data.length)
                  -each box in data
                    .col-lg-12(style="background-image: url('#{box.url}'); background-size:  cover;")
-                     a(href='?id=#{box.id}')
+                     a(href='histories/id=#{box.id}')
                       h4.trending-title #{box.title}
                      p(style='color: grey')
                       | #{box.summary}
