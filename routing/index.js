@@ -31,7 +31,7 @@ app
 
 .get("/WeeklyJarys", BoxController.getHistoriesWJ)
 
-.get('/histories/:id',BoxController.getHistoriesById)
+.get('/Stories/:id',BoxController.getHistoriesById)
 
 .get("/Genre",(rep,res)=>{
 

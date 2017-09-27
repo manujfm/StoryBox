@@ -26,7 +26,7 @@ article(style='margin-top: 100px; padding-top: 40px; border-top: 2px solid grey'
               -if(data.length)
                  -each box in data
                    .col-lg-12(style="background-image: url('#{box.url}'); background-size:  cover;")
-                     a(href='histories/id=#{box.id}')
+                     a(href='Stories/id=#{box.id}')
                       h4.trending-title #{box.title}
                      p(style='color: grey')
                       | #{box.summary}
