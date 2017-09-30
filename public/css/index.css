@@ -40,7 +40,6 @@
         }
         
         .logo{
-            background: url('../png/iso2.png') no-repeat;
             display: block;
             height: 400px;
             width: 800px;
@@ -48,15 +47,6 @@
             margin-top: 10px;
         }
 
-        .logohistories{
-            background: url('../png/esto.jpg') no-repeat;
-            background-size: ;
-            display: block;
-            height: 400px;
-            width: 800px;
-            margin-left: 264px;
-            margin-top: 10px;
-        }
 
          .social-media-icon>.navbar{
             min-height: none;
