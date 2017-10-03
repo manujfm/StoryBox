@@ -134,12 +134,14 @@
         .booknote{
             background-image: url("../doc/images/aside2.jpg");
             background-size: cover;
-            padding: 74px 0px 0px 85px;
+            padding: 61px 2px 19px 64px;
+            text-align: center;
         }
 
-        .booknote>div>p{
+        .booknote>p{
            width: 240px;
-           font-size: 11px;  
+           font-size: 14px;  
+           margin: 0 0 0 0;
         }
 
 
