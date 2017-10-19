@@ -2,11 +2,22 @@
        *{
         margin:0;
         padding: 0;
+        font-family: 'Oswald'
        }
+
+
 
        .social-media{
             border-bottom: 1px solid #ECE7E7;
 
+        }
+
+        .description-text, .description-text>p, .description-text>p>strong{
+            font-size:21px;
+            font-family:'Pacifico';
+            text-align: justify;
+            padding: 10px;
+            color: grey
         }
         
         .navbar-default{
@@ -132,9 +143,9 @@
         }
 
         .booknote{
-            background-image: url("../doc/images/aside2.jpg");
+            background-image: url("../doc/images/aside3.jpg");
             background-size: cover;
-            padding: 61px 2px 19px 64px;
+            padding: 61px 2px 102px 64px;
             text-align: center;
         }
 

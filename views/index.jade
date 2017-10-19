@@ -8,9 +8,9 @@ block content
         img(src="./png/iso2.png", alt="Box-Logo", class="image-title")
      
      include nav-bar
-    
-    main
-      article
+
+    main 
+      article(style="border-bottom:2px solid grey; padding-bottom:62px") 
         .row
           -if(data.length) 
              -each box in data
@@ -26,10 +26,17 @@ block content
                      h2(align='center') #{box.title}
                     p(align='center') #{box.date}
           -else
-            p No se pudo conectar con la BD
+            p No se pudo conectar con la BD 
+      article(style="border-bottom:2px solid grey")
+        .row
+            h1(align='center', style="display:none") Jarys' Story Box 
+            .col-lg-10.col-lg-offset-1.description-text
+              p This is a <strong>Box</strong> full of <strong>Stories</strong>. Some of them are there so you can find some <strong>distraction</strong>. Others are there to make you <strong>think</strong>, and some <strong>stories</strong> are made for you to find <strong>inspiration</strong>. 
+
+              p Here, in this box, I talk about <strong>dreams</strong>, <strong>life</strong>, <strong>feelings</strong>, and those stories that need to be <strong>told</strong>. This is a <strong>space</strong> to be <strong>creative</strong>, <strong>honest</strong>, and <strong>free</strong>. 
+
       include back-footer
     include footer
     script(src='../js/jquery.js')
     script(src='../js/bootstrap.min.js')
     script(src='../js/responsive-image.js')
-

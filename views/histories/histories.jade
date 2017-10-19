@@ -18,7 +18,11 @@ html(lang='en')
       .title-header{
       padding: 27px
       }
+      .logo2{
+       margin-left:240px;
+      }
   body.container
+
     #fb-root
     script(src='../js/facebook.js')
 
@@ -44,7 +48,7 @@ html(lang='en')
             a(href='#')
               img(src='../png/002-library.png', alt='Telegram-Icon')
       .row
-        .col-lg-9.col-lg-offset-3.logo
+        .col-lg-9.col-lg-offset-3.logo.logo2
           img(src="../png/esto.jpg", alt="Box Logo",class="image-title")
     nav.navbar.navbar-default(style='border-top: 5px solid grey;')
       .container
@@ -77,14 +81,15 @@ html(lang='en')
               h3(align='center') By A. Jarys.
           .container.contenthistories
              .col-lg-7.col-lg-offset-2
-                #casa #{box.history}
+                #casa #{box.history} 
+                .lolo(style="border-bottom: 1px solid #ECE7E7; margin:55px")
                 .fb-like(data-href='#{ref}', data-layout='standard', data-action='like', data-size='large', data-show-faces='true', data-share='true')
                 .fb-comments(data-href="#{ref}", data-width='100%', data-numposts='5')
 
 
     -else
       p No se pudo conectar
-    
+   
     footer
       .footer-container(align='center')
         p(style='font-size:10px') Copyright © 2017 -Jarys' Story Box- All Rights Reserved
