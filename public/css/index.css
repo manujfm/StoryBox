@@ -2,7 +2,7 @@
        *{
         margin:0;
         padding: 0;
-        font-family: 'Oswald'
+        font-family: 'Cormorant Infant'
        }
 
 
@@ -14,7 +14,7 @@
 
         .description-text, .description-text>p, .description-text>p>strong{
             font-size:21px;
-            font-family:'Pacifico';
+            font-family:'Petit';
             text-align: justify;
             padding: 10px;
             color: grey

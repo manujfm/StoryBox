@@ -27,3 +27,67 @@
     font-family: Oswald-SemiBold;
     src: url("../fonts/Oswald-SemiBold.ttf");
 }
+
+
+
+
+
+
+
+@font-face {
+    font-family: Petit;
+    src: url("../fonts/PetitFormalScript-Regular.ttf");
+}
+
+
+
+
+@font-face {
+    font-family: Cormorant Infant Bold;
+    src: url("../fonts/CormorantInfant-Bold.ttf");
+}
+
+@font-face {
+    font-family: Cormorant Infant Bold Italic;
+    src: url("../fonts/CormorantInfant-BoldItalic.ttf");
+}
+
+@font-face {
+    font-family: Cormorant Infant Italic;
+    src: url("../fonts/CormorantInfant-Italic.ttf");
+}
+
+@font-face {
+    font-family: Cormorant Infant Light;
+    src: url("../fonts/CormorantInfant-Light.ttf");
+}
+
+@font-face {
+    font-family: Cormorant Infant Light Italic;
+    src: url("../fonts/CormorantInfant-LightItalic.ttf");
+}
+
+@font-face {
+    font-family: Cormorant Infant Medium;
+    src: url("../fonts/CormorantInfant-Medium.ttf");
+}
+
+@font-face {
+    font-family: Cormorant Infant  Medium Italic;
+    src: url("../fonts/CormorantInfant-MediumItalic.ttf");
+}
+
+@font-face {
+    font-family: Cormorant Infant;
+    src: url("../fonts/CormorantInfant-Regular.ttf");
+}
+
+@font-face {
+    font-family: Cormorant Infant SemiBold;
+    src: url("../fonts/CormorantInfant-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: Cormorant Infant SemiBold Italic;
+    src: url("../fonts/CormorantInfant-SemiBoldItalic.ttf");
+}
