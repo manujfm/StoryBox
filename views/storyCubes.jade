@@ -19,7 +19,7 @@ block content
                       h3#cabeza #{box.title}
                     p#parrafo
                       | #{box.summary}
-                  img(src='#{box.url}', alt='fearimage', height='240px', width='240px', style='border-radius: 100%')
+                  img(src='#{box.url}', alt='#{box.title}', height='240px', width='240px', style='border-radius: 100%')
                   .title-post
                     a(href='Stories/id=#{box.id}')
                      h2(align='center') #{box.title}

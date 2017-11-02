@@ -1,0 +1,28 @@
+extends head
+block content
+ body
+ .container
+   .row
+     .col-lg-5.col-lg-offset-4(style="padding: 53px;margin-top: 50px;box-shadow: 3px 3px 8px grey;")
+       form(method="post" action="/login")
+         .row
+           .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+             label(for='user') User
+             input#user.form-control(type='text', name='user', placeholder='user')
+         .row
+           .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+             label(for='password') Password
+             input#password.form-control(type='Password', name='Password', placeholder='Password')
+         .row
+           .col-lg-1.col-lg-offset-8(style="margin-top:10px")    	
+             button.btn.btn-md.btn-info(type='submit') Send
+         .row
+            if message!=null
+             .col-lg-12#alert.alert.alert-danger(style="margin-top:10px")
+               p(style="text-align:center; font-weight:bold; font-size:18px") #{message}
+
+                
+             
+              
+  script(src='../js/jquery.js')
+  script(src='../js/bootstrap.min.js')

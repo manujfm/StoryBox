@@ -1,6 +1,7 @@
 'use strict'
 var BoxController=require("../controlers/controler-box"),
     express=require("express"),
+    session=require("express-session"),
     app=express.Router();
 
 function error404(rep,res){
@@ -14,12 +15,18 @@ function error404(rep,res){
   res.render('error',locals)
 }
 
-
-
+app.use(session({
+  secret:"12qwaszx",
+  resave:false,
+  saveUninitialized:true
+}))
 /*Routing*/
 
 
 app
+.post("/login" , BoxController.validateUser)
+
+.post("/content-manipulation", BoxController.dataContent)
 
 .get("/", BoxController.getAll)
 
@@ -33,11 +40,12 @@ app
 
 .get("/Stories/:id",BoxController.getHistoriesById)
 
-.get("/Genre",(rep,res)=>{
+.get("/login", BoxController.loginview)
 
-  res.render("genre");
+.get("/content-manipulation", BoxController.contenManip)
 
-})
+
+
 //.use(error404)
 
 module.exports=app

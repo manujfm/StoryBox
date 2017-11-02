@@ -23,9 +23,14 @@
   },
   "homepage": "https://github.com/manujfm/Blog#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
     "bootstrap": "^3.3.7",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
+    "express-fileupload": "^0.3.0",
     "express-method-override": "0.0.3",
+    "express-session": "^1.15.6",
     "jade": "^1.11.0",
     "mysql": "^2.14.1"
   }

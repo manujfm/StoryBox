@@ -1,0 +1,44 @@
+extends head
+block content
+ body
+    -if (user==null)
+      div#Alert23
+        h1(align="center") Sorry.
+    -else 
+       .container
+         .row
+           .col-lg-8.col-lg-offset-2(style="padding: 53px;margin-top: 50px;box-shadow: 3px 3px 8px grey;")
+             form(method="POST" action='/content-manipulation' enctype="multipart/form-data")
+               .row
+                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                   label(for='user') Historia
+                   textarea#user.form-control(type='text', name='history', placeholder='Historia')
+               .row
+                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                   label(for='password') Resumen
+                   textarea#resumen.form-control(type='text', name='summary', placeholder='Password')
+               .row
+                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                   label(for='password') Titulo
+                   input#password.form-control(type='text', name='title', placeholder='titulo')
+               .row
+                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                   label(for='password') Fecha
+                   input#password.form-control(type='text', name='date', placeholder='fecha')  
+               .row
+                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                  label(for="category") Categoria
+                  select#category.form-control(name="category")
+                   option(value="1") The Weekly Jarys
+                   option(value="2") True Story
+                   option(value="3") Short Stories
+                   option(value="4") Story Cubes 
+               .row
+                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                  label(for="file_upload") Upload
+                  input#file_upload(type="file", name="file_upload")
+               .row
+                 .col-lg-1.col-lg-offset-8(style="margin-top:10px")    	
+                   button.btn.btn-md.btn-info(type='submit') Send
+  script(src='../js/jquery.js')
+  script(src='../js/bootstrap.min.js')
