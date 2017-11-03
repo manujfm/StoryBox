@@ -3,6 +3,14 @@ html(lang='en')
   head
     meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
     meta(charset='UTF-8')
+    -if(data.length)
+      -each box in data
+          meta(property='og:url', content='http://jarystorybox.com/Stories/#{box.id}')
+          meta(property='og:type', content='article')
+          meta(property='og:title', content='#{box.title}')
+          meta(property='og:description', content='#{box.summary}?')
+          meta(property='og:image', content='#{box.url}')
+
     link(rel='stylesheet', href='../css/bootstrap.min.css')
     link(rel='shortcut icon', href='../doc/images/BOXES.ico')
     link(rel="stylesheet", href="../css/fonts.css")
@@ -10,7 +18,8 @@ html(lang='en')
     title Jarys' Story Box
     style.
       p{
-      text-indent: 17px
+      text-indent: 17px;
+      font-size:16px;
       }
       .contenthistories{
       text-align: justify;
@@ -49,8 +58,8 @@ html(lang='en')
             a(href='#')
               img(src='../png/002-library.png', alt='Telegram-Icon')
       .row
-        .col-lg-9.col-lg-offset-3.logo.logo2
-          img(src="../png/esto.jpg", alt="Box Logo",class="image-title")
+        .col-lg-9.col-lg-offset-3.logo.logo2(style="height:270px; margin-left:331px")
+          img(src="../png/iso23.png", alt="Box Logo",class="image-title")
     nav.navbar.navbar-default(style='border-top: 5px solid grey;')
       .container
         .navbar-header
@@ -60,7 +69,7 @@ html(lang='en')
             span.icon-bar
             span.icon-bar
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          .container.col-lg-.col-lg-offset-3
+          .container.col-lg-7.col-lg-offset-3
             ul.nav.navbar-nav
               li
                 a(href='/')
@@ -84,6 +93,15 @@ html(lang='en')
              .col-lg-7.col-lg-offset-2
                 #casa #{box.history} 
                 .lolo(style="border-bottom: 1px solid #ECE7E7; margin:55px")
+                .license  
+                  a(rel='license', href='http://creativecommons.org/licenses/by-nc-nd/4.0/')
+                    img(alt='Creative Commons License', style='border-width:0', src='https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png')
+                  br 
+                  | This work is licensed under a 
+                  a(rel='license', href='http://creativecommons.org/licenses/by-nc-nd/4.0/')
+                    | Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+                  | .
+
                 .fb-like(data-href='#{ref}', data-layout='standard', data-action='like', data-size='large', data-show-faces='true', data-share='true')
                 .fb-comments(data-href="#{ref}", data-width='100%', data-numposts='5')
 
@@ -94,6 +112,8 @@ html(lang='en')
     footer
       .footer-container(align='center')
         p(style='font-size:10px') Copyright © 2017 -Jarys' Story Box- All Rights Reserved
+
+
 
     script(src='../js/jquery.js')
     script(src='../js/bootstrap.min.js')
