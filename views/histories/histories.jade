@@ -107,9 +107,11 @@ html(lang='en')
                     input(type='hidden', name='hosted_button_id', value='ENYFWUZQR6YKC')
                     input(type='image', src='https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif', border='0', name='submit', alt='PayPal - The safer, easier way to pay online!')
                     img(alt='', border='0', src='https://www.paypalobjects.com/es_XC/i/scr/pixel.gif', width='1', height='1')
+                .fb-like(data-href='#{ref}', data-layout='standard', data-action='like', data-size='large', data-show-faces='true', data-share='true' style="margin-left:10px; margin-bottom:10px")  
+                a.twitter-share-button(href='https://twitter.com/share?ref_src=twsrc%5Etfw', data-size='large', data-via='ajarys ', data-hashtags='StoryBox', data-lang='en', data-show-count='false') Tweet
 
-                .fb-like(data-href='#{ref}', data-layout='standard', data-action='like', data-size='large', data-show-faces='true', data-share='true')
                 .fb-comments(data-href="#{ref}", data-width='100%', data-numposts='5')
+                
 
 
     -else
@@ -125,4 +127,4 @@ html(lang='en')
     script(src='../js/bootstrap.min.js')
     script(src='../js/transform.js')
     script(src='../js/responsive-image.js')
-
+    script(async='', src='https://platform.twitter.com/widgets.js', charset='utf-8')
