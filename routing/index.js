@@ -44,6 +44,8 @@ app
 
 .get("/content-manipulation", BoxController.contenManip)
 
+.get("/error", BoxController.error)
+
 
 
 //.use(error404)

@@ -149,7 +149,7 @@ var BoxModel=require('../model/sql-models'),
        const dir_file='/home/storybox/public/doc/images/';
        const dir_file_cube='/home/storybox/public/doc/cubesimages/';
 
-        //const dir_file='C:/xampp/htdocs/storybox/public/doc/images/';
+       // const dir_file='C:/xampp/htdocs/storybox/public/doc/images/';
         //const dir_file_cube='C:/xampp/htdocs/storybox/public/doc/cubesimages/';
         
         var date= new Date();
@@ -165,6 +165,7 @@ var BoxModel=require('../model/sql-models'),
            if(err){
                 console.log(err)
                 console.log("Error al subir el archivo")
+                res.render('error',{err:err})
             }else{
 
               if(req.files.file_upload_cube){
@@ -176,10 +177,12 @@ var BoxModel=require('../model/sql-models'),
                      if(err){
                         console.log(err)
                         console.log("Error al subir el archivo 2")
+                        res.render("error",{err:err})
                      }else{
                        BoxModel.insertData(req.body,'doc/images/'+file_newname,'../doc/images/'+file_newname_cube,(err,row)=>{
                           if (err) {
                               console.log(err)
+                              res.render("error",{err:err})
                           }else {
                               res.redirect("/content-manipulation")
                               res.end();
@@ -198,6 +201,7 @@ var BoxModel=require('../model/sql-models'),
                 BoxModel.insertData(req.body,'doc/images/'+file_newname,null,(err,row)=>{
                   if (err) {
                     console.log(err)
+                    res.render("error",{err:err})
                   }else {
                      res.redirect("/content-manipulation")
                      res.end();
@@ -221,7 +225,10 @@ var BoxModel=require('../model/sql-models'),
                 //})   
            // }
       // })
+    }
 
+    BoxController.error=(req,res,next)=>{
+     res.render('error', data)
     }
 
 
