@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2017 a las 15:32:58
+-- Tiempo de generación: 15-11-2017 a las 15:55:21
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -23,27 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categories`
---
-
-CREATE TABLE `categories` (
-  `id` int(11) NOT NULL COMMENT 'indice de la categoria',
-  `name` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'Nombre de la ategoria'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabla de las categorias de las historias';
-
---
--- Volcado de datos para la tabla `categories`
---
-
-INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'The Weekly Jarys'),
-(2, 'True Story'),
-(3, 'Short Stories'),
-(4, 'Story Cubes');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `history`
 --
 
@@ -56,7 +35,7 @@ CREATE TABLE `history` (
   `date` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'fecha de la historia',
   `category` int(11) NOT NULL COMMENT 'id de la categoria de la historia',
   `validstory` int(11) DEFAULT NULL,
-  `imagecube` varchar(150) NOT NULL
+  `imagecube` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -69,36 +48,9 @@ INSERT INTO `history` (`id`, `title`, `history`, `summary`, `url`, `date`, `cate
 (3, 'Smoke', '<p style=\"text-indent: 40px\">The richest neighborhood was a little far from the city. The houses there were the biggest in the country. Only important people could be found living in these houses, so it was in fact a very quiet place.</p>\n<p style=\"text-indent: 40px\">One summer day like any other, on this very same rich neighborhood, a chimney was sending a dark, dense smoke column to the sky. The day was hot and dry, so the fact that a fireplace was being used was odd. The smell coming out along with the smoke filled the air with an annoying hard-to-breath sensation.</p> \n<p style=\"text-indent: 40px\">Inside the house, in the living room, the fireplace was on with a crackling fire. A woman was sitting on the couch, reading a book. Her fancy clothes suggested she was about to go out, but her still hot half-full cup of coffee appeared to be opposing that statement.</p>\n<p style=\"text-indent: 40px\">The woman looked sad and a little concerned. She was staring at her book almost without blinking. The book had a picture of our planet on the cover, and the title was hard to read; the entire book was old and worn-out. Her hands were shaking, and her lips were almost blood-red from biting them too much. </p>\n<p style=\"text-indent: 40px\">The phone started ringing, so she took it without taking her eyes away from the book.</p>\n<p style=\"text-indent: 40px\">“We are ready” said the voice at the other side of the phone. “Our investigation is complete”.</p>\n<p style=\"text-indent: 40px\">“Are you sure no one is gonna notice your family is gone?” Said another voice in the phone.</p>\n<p style=\"text-indent: 40px\">“Not a single soul” Answered the woman.</p>\n<p style=\"text-indent: 40px\">“Then, proceed.”</p>\n<p style=\"text-indent: 40px\">The woman closed the book, and left the phone at the couch. She stood up and walked to the window to see the street one more time. A crow was staring at her from the other side of the one way glass. She knew it was impossible for the bird to actually see her, so she closed the curtains and turned around.</p> \n<p style=\"text-indent: 40px\">She was standing on the middle of the living room, staring at the fire, there was still some cloth pieces burning inside. She took a little bottle from the table, and drank the bluish liquid inside. She threw the bottle at the fire, like she had done the other times; no evidence could be left behind. </p>\n<p style=\"text-indent: 40px\">She walked forward and stepped into the fire. After several seconds of pain, the woman just disappeared. The smoke going through the chimney turned purplish, and the smell was kind of scented. Nobody knew she was gone.</p>\n<br>\n<p style=\"text-indent: 40px\">A few days went by till the police arrived. Some neighbors were worried about their properties; the fireplace inside that house had been on for days, and nobody seemed to be inside.</p>\n<p style=\"text-indent: 40px\">“What if the whole house catches fire?” Said a woman dressed like a royal queen. “Mine is just two houses away”.</p>\n<p style=\"text-indent: 40px\">Other neighbors had similar concerns.</p>\n<p style=\"text-indent: 40px\">The police decided to break in to put out the fire.</p>\n<p style=\"text-indent: 40px\">The house appeared to be empty. Nothing suggested that something was on fire.</p>\n<p style=\"text-indent: 40px\">In the living room, a purplish crow-like bird was staring at an opened book right in front of the fireplace. It’s wings seemed to have severe burns.</p>   \n<p style=\"text-indent: 40px\">“What the…” Said the police officer when he saw the fire place; there was no fire.</p>\n<p style=\"text-indent: 40px\">The smoke was still coming out of the chimney, but the source obviously wasn’t fire. The crow didn’t take its eyes off the book. The man took a look at it, and what he saw left him breathless: it was his own face staring back at him.  He took the book between his hands, and saw the cover: a picture of a strange planet could be seen on it, and the words It’s our turn in shiny letters. It looked like an old ritual to open portals to another dimension.</p>\n<p style=\"text-indent: 40px\">Suddenly, the flames appeared in the fireplace, and two hands took the man inside the fire.</p>\n<br>\n<p style=\"text-indent: 40px\">Several minutes later, a man with a purplish police uniform came out of the house. He went to the car where another policeman was waiting.</p>\n<p style=\"text-indent: 40px\">“What took you so long?” Asked the other man, impatient.</p>\n<p style=\"text-indent: 40px\">“I needed some help”.</p>', 'Not all those who come from fire are ashes...', 'doc/images/smoke.jpg', 'Sep 7th 2017', 4, 1, '../doc/cubesimages/smoke2.jpg'),
 (4, 'Seven Birds', '<p style=\"text-indent: 40px\">Little raindrops were falling from the blue sky. A girl was staring at the horizon. The dark clouds were covering the sun, erasing the shadows from the ground. The trees in the forest looked pleased under the rain, unlike all the animals that she could see from the porch, that were moving around looking for refuge. The girl let out a sigh. The vacations were taking too long, and she was bored and lonely. The view from the cabin was beautiful, but she wasn’t allowed to go outside. </p>\n<p style=\"text-indent: 40px\">Her grandfather, that was looking at the same direction, had a big smile on his face. The girl, confused, asked him what was he so happy about. The old man looked at her, and gave her an even bigger smile.</p>\n<p style=\"text-indent: 40px\">“Isn’t it beautiful?” said he. The girl just nodded, disappointed. She was expecting a better answer. “What are you so unhappy about?” asked the old man. “you are too young to be like that”.</p>\n<p style=\"text-indent: 40px\">“I want to go” She said, looking away at the horizon.</p>\n<p style=\"text-indent: 40px\">“And why is that?” asked her grandfather.</p>\n<p style=\"text-indent: 40px\">“I’m bored, I can’t do anything”.</p>\n<p style=\"text-indent: 40px\">“In that you are truly wrong” said her grandfather in a funny voice. “You can think, walk, talk…” he paused, the girl still looked disappointed. “you can do everything you want”.</p>\n<p style=\"text-indent: 40px\">“My parents won’t let me do anything” answered the girl, obviously angry. “how old do I have to be in order to be free?” she asked, and looked at her grandfather’s eyes.</p>\n<p style=\"text-indent: 40px\">“You’ll be free whenever you decide to be” said him. </p>\n<p style=\"text-indent: 40px\">The sound of birds filled their ears and feathers were falling from the sky.</p>\n<p style=\"text-indent: 40px\">“What do you mean grandpa?”</p>\n<p style=\"text-indent: 40px\">“Do you see those birds?” he said, pointing at the sky. A little flock of birds were passing by. The girl nodded. “Imagine you have a lot of birds like those inside of you. Each of them represents one of the things you need to be free”.</p>\n<p style=\"text-indent: 40px\">The girl kept looking at the birds, amazed by the different colors and sizes. She smiled for a second, and then opened her mouth to speak: “What things?” she asked.</p>\n<p style=\"text-indent: 40px\">“See the blue one over there? That’s Wisdom. If you want to be free, you can’t stop learning, you need to understand a lot of things… you need answers. The blue bird is rare, not a lot of people can get one, but I’m sure you do.” Said the old man with a funny expression.</p>\n<p style=\"text-indent: 40px\">“Oh! Look at the yellow one!” He said before the girl could say anything. “That one is the most difficult one to find. Some people say is yellow because it’s as valuable as gold. Have any idea of what its name is?” He asked. The girl shook her head. “Well, that one is Forgiveness. In order to be free, you need to let go of all resentment, and forgive those who hurt you, including yourself. We are all human, never forget that”.</p>\n<p style=\"text-indent: 40px\">“The red one over there is the most common one, but somehow is the most difficult to accept. Every time a red bird appears everyone just try to kill it. But those who want to be free have to embrace it, and accept it as part of life... Have any idea on this one?” He said. The girl shook her head again. “Change” he answered “Change is the law of life, but is hard to accept. Being free also means to adapt, and to be greater than circumstances. Most adults in this world refuse to be free just because of this little red bird, did you know?”.</p>\n<p style=\"text-indent: 40px\">The girl had a little smile on her face. She thought of her parents, and wondered if they had sometime tried to kill their red birds.</p>\n<p style=\"text-indent: 40px\">“The green one. Right there, the loud one. That’s Courage. That one can be hard to understand now, but to be free you need to have courage, and you need to be strong enough to never give up. That’s why some people never find their place in this world; they can’t find their green bird, because this one is the one that gives you strength”.</p>\n<p style=\"text-indent: 40px\">“The one with the funny purplish color, only good people can have one of those, so there’s not a lot on this world. That one is Humility, and it’s very special. To be free you need to let go of all pretensions, otherwise you’ll fall into arrogance and greed, and that itself is a type of slavery”.</p>\n<p style=\"text-indent: 40px\">“The teal one is the most underestimated bird you’ll ever see. People usually take it for granted in youth, and struggle to find it while aging. Adults usually fail to remember that freedom is something you share. Actually, only kids like you can truly appreciate this bird… This one is Friendship. I highly recommend you to keep this one close, because it has a tendency to disappear when we grow old. ”</p>\n<p style=\"text-indent: 40px\">The girl thought of her parents once more, trying to remember if she had ever seen them with some real friends, but all they ever did was about work.</p>\n<p style=\"text-indent: 40px\">“That little wine one, the last of all, is my favorite. It’s the only one that actually has the answer to everything. That’s the one who’s going to tell you how you can be free in this world” Said the old man, and stared at his granddaughter.</p>\n<p style=\"text-indent: 40px\">“What’s its name?” asked the little girl, looking meditative.</p>\n<p style=\"text-indent: 40px\">“Self-awareness” he said after a long sigh. “This bird is the one who knows who you are, what you really want, and your purpose in this world. This bird is usually invisible for most people, but when you manage to find it, everything will be clear. But if you don’t find it, you’ll always be working for your surroundings”.</p>\n<p style=\"text-indent: 40px\">The girl looked at the horizon, thinking about what her grandfather had said. She frowned, she couldn’t help but feeling like something was missing.</p>\n<p style=\"text-indent: 40px\">“What about love?” She asked. “Love is not part of freedom?”.</p>\n<p style=\"text-indent: 40px\">“Of course it is. But the underestimated bird over there actually carries the most honest kind of love. Only true friendship can be a freedom kind of love. That’s why some people say that falling in love with your best friend is the best of luck”.</p>\n<p style=\"text-indent: 40px\">The little girl blushed for an instant, and then changed the topic.</p>\n<p style=\"text-indent: 40px\">“When will all of these birds make me free?” asked the girl without looking at her grandfather.</p>\n<p style=\"text-indent: 40px\">The seven birds were flying in circles in front of the porch. Colorful feather were falling to the ground. The girl thought they looked like they were dancing in mid air.</p>\n<p style=\"text-indent: 40px\">The old man laughed, and put his arm around the girl. He waved at the birds with his other hand, all of them flew away and disappeared in the now clear sky.</p>\n<p style=\"text-indent: 40px\">“When you let <i>them</i> free”.</p>\n', 'What does it take to be free', 'doc/images/sevenbirds.jpg', 'Sep 7th 2017', 3, 0, '');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
-
-CREATE TABLE `users` (
-  `id` int(2) NOT NULL COMMENT 'id unico del usuario',
-  `name` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'nombre del usuario',
-  `user` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'usuario',
-  `password` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'contrasena del usuario',
-  `salt` varchar(250) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `name`, `user`, `password`, `salt`) VALUES
-(1, 'manuel', 'manux_56', '$2a$10$X/p4xz1cyn9oGxBAda83FeuEiYQ.5DPlLk.uMRFmNT8F2LffUkPr.', '$2a$10$X/p4xz1cyn9oGxBAda83Fe');
-
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `history`
@@ -107,30 +59,14 @@ ALTER TABLE `history`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
---
--- AUTO_INCREMENT de la tabla `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'indice de la categoria', AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `history`
 --
 ALTER TABLE `history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id unico de la historia', AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT de la tabla `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT COMMENT 'id unico del usuario', AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
