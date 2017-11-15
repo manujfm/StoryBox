@@ -201,7 +201,7 @@ var BoxModel=require('../model/sql-models'),
                 BoxModel.insertData(req.body,'doc/images/'+file_newname,null,(err,row)=>{
                   if (err) {
                     console.log(err)
-                    res.render("no existe cube")
+                    res.end("no existe cube")
                   }else {
                      res.redirect("/content-manipulation")
                      res.end();
