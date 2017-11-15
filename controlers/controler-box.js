@@ -146,11 +146,11 @@ var BoxModel=require('../model/sql-models'),
        // console.log(req.body)
        // console.log(req.files.file_upload.mimetype)
 
-       const dir_file='/home/storybox/public/doc/images/';
-       const dir_file_cube='/home/storybox/public/doc/cubesimages/';
+       //const dir_file='/home/storybox/public/doc/images/';
+       //const dir_file_cube='/home/storybox/public/doc/cubesimages/';
 
-       // const dir_file='C:/xampp/htdocs/storybox/public/doc/images/';
-        //const dir_file_cube='C:/xampp/htdocs/storybox/public/doc/cubesimages/';
+        const dir_file='C:/xampp/htdocs/storybox/public/doc/images/';
+        const dir_file_cube='C:/xampp/htdocs/storybox/public/doc/cubesimages/';
         
         var date= new Date();
         
@@ -179,7 +179,7 @@ var BoxModel=require('../model/sql-models'),
                         console.log("Error al subir el archivo 2")
                         res.end("error al subir 2")
                      }else{
-                       BoxModel.insertData(req.body,'doc/images/'+file_newname,'../doc/images/'+file_newname_cube,(err,row)=>{
+                       BoxModel.insertData(req.body,'doc/images/'+file_newname,'../doc/cubesimages/'+file_newname_cube,(err,row)=>{
                           if (err) {
                               console.log(err)
                               res.end("error en database")
