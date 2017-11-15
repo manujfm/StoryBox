@@ -165,7 +165,7 @@ var BoxModel=require('../model/sql-models'),
            if(err){
                 console.log(err)
                 console.log("Error al subir el archivo")
-                res.render('error',{err:err})
+                res.end('errorr al subir 1')
             }else{
 
               if(req.files.file_upload_cube){
@@ -177,12 +177,12 @@ var BoxModel=require('../model/sql-models'),
                      if(err){
                         console.log(err)
                         console.log("Error al subir el archivo 2")
-                        res.render("error",{err:err})
+                        res.end("error al subir 2")
                      }else{
                        BoxModel.insertData(req.body,'doc/images/'+file_newname,'../doc/images/'+file_newname_cube,(err,row)=>{
                           if (err) {
                               console.log(err)
-                              res.render("error",{err:err})
+                              res.end("error en database")
                           }else {
                               res.redirect("/content-manipulation")
                               res.end();
@@ -201,7 +201,7 @@ var BoxModel=require('../model/sql-models'),
                 BoxModel.insertData(req.body,'doc/images/'+file_newname,null,(err,row)=>{
                   if (err) {
                     console.log(err)
-                    res.render("error",{err:err})
+                    res.render("no existe cube")
                   }else {
                      res.redirect("/content-manipulation")
                      res.end();
