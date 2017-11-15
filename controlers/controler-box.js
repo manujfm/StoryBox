@@ -145,29 +145,82 @@ var BoxModel=require('../model/sql-models'),
     BoxController.dataContent=(req,res,next)=>{
        // console.log(req.body)
        // console.log(req.files.file_upload.mimetype)
-        const dir_file='/home/storybox/public/doc/images/';
+
+       const dir_file='/home/storybox/public/doc/images/';
+       const dir_file_cube='/home/storybox/public/doc/cubesimages/';
+
+        //const dir_file='C:/xampp/htdocs/storybox/public/doc/images/';
+        //const dir_file_cube='C:/xampp/htdocs/storybox/public/doc/cubesimages/';
+        
+        var date= new Date();
+        
         let file_name=req.files.file_upload.name;
         let file_type=req.files.file_upload.mimetype;
-        var date= new Date();
+
         var file_newname=date.getDate().toString()+(date.getMonth()+1).toString()+date.getFullYear().toString()+date.getHours().toString()+date.getMinutes().toString()+date.getSeconds().toString()+"."+file_type.split("/")[1];
-        
+
+
         req.files.file_upload.mv(dir_file+file_newname,(err)=>{
            
            if(err){
                 console.log(err)
                 console.log("Error al subir el archivo")
             }else{
-               BoxModel.insertData(req.body,'doc/images/'+file_newname,(err,row)=>{
-                if (err) {
-                    console.log(err)
-                }else {
-                    res.redirect("/content-manipulation")
-                    res.end();
 
-                }
-                })   
+              if(req.files.file_upload_cube){
+                let file_name_cube=req.files.file_upload_cube.name;
+                let file_type_cube=req.files.file_upload_cube.mimetype;        
+                var file_newname_cube=date.getDate().toString()+(date.getMonth()+1).toString()+date.getFullYear().toString()+date.getHours().toString()+date.getMinutes().toString()+date.getSeconds().toString()+"."+file_type_cube.split("/")[1];             
+
+                req.files.file_upload_cube.mv(dir_file_cube+file_newname_cube,(err)=>{
+                     if(err){
+                        console.log(err)
+                        console.log("Error al subir el archivo 2")
+                     }else{
+                       BoxModel.insertData(req.body,'doc/images/'+file_newname,'../doc/images/'+file_newname_cube,(err,row)=>{
+                          if (err) {
+                              console.log(err)
+                          }else {
+                              res.redirect("/content-manipulation")
+                              res.end();
+
+                          }
+                        
+                       })
+
+                    }
+
+
+                 })
+
+              }else{
+
+                BoxModel.insertData(req.body,'doc/images/'+file_newname,null,(err,row)=>{
+                  if (err) {
+                    console.log(err)
+                  }else {
+                     res.redirect("/content-manipulation")
+                     res.end();
+
+                  }
+
+              })
+
+
             }
+
+          }
+
         })
+
+
+
+
+
+
+                //})   
+           // }
+      // })
 
     }
 

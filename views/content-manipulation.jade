@@ -32,13 +32,26 @@ block content
                    option(value="1") The Weekly Jarys
                    option(value="2") True Story
                    option(value="3") Short Stories
-                   option(value="4") Story Cubes 
+                   option(value="4") Story Cubes  
+                .row
+                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")                 
+                  label(for='data_valid_cube') Valid Cube
+                  p(style="background:red; color:yellow") NO TOCAR DONT TOUCH
+                  input#data_valid_cube.form-control(type="text", name="data_valid_cube", value="0")  
+                     
                .row
                  .col-lg-8.col-lg-offset-2(style="margin-top:10px")
-                  label(for="file_upload") Upload
-                  input#file_upload(type="file", name="file_upload")
+                   label(for="file_upload") Upload
+                   input#file_upload(type="file", name="file_upload")
+
+               .row
+                  .col-lg-8.col-lg-offset-2#file_upload_container(style="display:none")
+                    label(for="file_upload_cube") Upload StoryCube
+                    input#file_upload_cube(type="file",name="file_upload_cube")
+
                .row
                  .col-lg-1.col-lg-offset-8(style="margin-top:10px")    	
                    button.btn.btn-md.btn-info(type='submit') Send
   script(src='../js/jquery.js')
   script(src='../js/bootstrap.min.js')
+  script(src='../js/content-manipulation.js')

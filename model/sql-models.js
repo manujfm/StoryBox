@@ -33,9 +33,17 @@ var connect=require('./sql-connection'),
         connect.query(query,cb)
     }
 
-    BoxModel.insertData=(data, filename, cb)=>{
-        var query= "INSERT INTO history (history, summary, title, date, category, url) VALUES ('"+data.history+"','"+data.summary+"','"+data.title+"','"+data.date+"','"+data.category+"','"+filename+"')"
+    BoxModel.insertData=(data, filename,filename_cube, cb)=>{
+        if(filename_cube){
+         var query= "INSERT INTO history (history, summary, title, date, category, url, validstory, imagecube) VALUES ('"+data.history+"','"+data.summary+"','"+data.title+"','"+data.date+"','"+data.category+"','"+filename+"','"+data.data_valid_cube+"','"+filename_cube+"')"
+         //console.log(query)
+         connect.query(query,cb)
+        }else{
+        var query= "INSERT INTO history (history, summary, title, date, category, url, validstory) VALUES ('"+data.history+"','"+data.summary+"','"+data.title+"','"+data.date+"','"+data.category+"','"+filename+"','"+data.data_valid_cube+"')"
+        //console.log(query)
         connect.query(query,cb)
+        }
+
     }
 
  module.exports= BoxModel

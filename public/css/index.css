@@ -194,3 +194,11 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+
+
+.cubecontainer{
+    margin: 0 auto;
+    width: 60%;
+    padding: 0 0 10px 0;
+}
