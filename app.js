@@ -1,5 +1,4 @@
 
-'use strict'
 var express=require("express"),
 app=express(),
 jade=require('jade'),
@@ -11,7 +10,7 @@ file_upload=require("express-fileupload")
 port=(process.env.PORT||8080)
 
 function error404(rep,res,next){
-  let error=new Error(),
+  var error=new Error(),
   locals={
     title:'Error 404 :(',
     description: 'The resource was not found',
