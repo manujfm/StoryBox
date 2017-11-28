@@ -2,7 +2,7 @@
        *{
         margin:0;
         padding: 0;
-        font-family: 'Cormorant Infant'
+        font-family: 'Cormorant Infant','Arial';
        }
 
 
@@ -14,7 +14,7 @@
 
         .description-text, .description-text>p, .description-text>p>strong{
             font-size:21px;
-            font-family:'Petit';
+            font-family:'Petit','Arial';
             text-align: justify;
             padding: 10px;
             color: grey
@@ -195,5 +195,5 @@
 }
 
 .paraNorm>span{
-   font-family: "Oleo"
+   font-family: "Oleo", 'Arial';
 }

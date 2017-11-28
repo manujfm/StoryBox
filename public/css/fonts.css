@@ -1,45 +1,9 @@
-@font-face {
-    font-family: Oswald-Bold;
-    src: url("../fonts/Oswald-Bold.ttf");
-}
-
-@font-face {
-    font-family: Oswald-ELight;
-    src: url("../fonts/Oswald-ExtraLight.ttf");
-}
-
-@font-face {
-    font-family: Oswald-Light;
-    src: url("../fonts/Oswald-Light.ttf");
-}
-
-@font-face {
-    font-family: Oswald-Medium;
-    src: url("../fonts/Oswald-Medium.ttf");
-}
-
-@font-face {
-    font-family: Oswald;
-    src: url("../fonts/Oswald-Regular.ttf");
-}
-
-@font-face {
-    font-family: Oswald-SemiBold;
-    src: url("../fonts/Oswald-SemiBold.ttf");
-}
-
-
-
-
-
 
 
 @font-face {
     font-family: Petit;
     src: url("../fonts/PetitFormalScript-Regular.ttf");
 }
-
-
 
 
 @font-face {
@@ -95,11 +59,6 @@
 @font-face {
     font-family: Lobster;
     src: url("../fonts/Lobster-Regular.ttf");
-}
-
-@font-face {
-    font-family: Beckshire;
-    src: url("../fonts/BerkshireSwash-Regular.ttf");
 }
 
 @font-face {

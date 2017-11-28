@@ -1,5 +1,5 @@
 
-content {
+.content {
 position: absolute;
 top: 50%;
 left: 50%;
@@ -16,7 +16,7 @@ color: #A2D9CE;
 font-weight: 600;
 overflow: hidden;
 height: 50px;
-padding: 0 40px;
+/*padding: 0 40px;*/
 }
 
 
