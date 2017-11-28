@@ -7,17 +7,17 @@ block content
      include nav-bar
     main
       h1(align='center', style='margin-bottom: 20px') True Story
-      article(style="border-bottom:2px solid grey")
+      article(style="border-bottom:2px solid grey; padding-bottom:62px")
         .row
           -if(data.length) 
              -each box in data
-               .col-lg-3(style='margin-left:')
-                  .info
+               .col-lg-3.col-xm-12(style='margin-left:')
+                  .info(style="margin-left:25px")
                     a(href='Stories/id=#{box.id}')
                       h3#cabeza #{box.title}
                     p#parrafo
                       | #{box.summary}
-                  img(src='#{box.url}', alt='#{box.title}', height='240px', width='240px', style='border-radius: 100%')
+                  img(src='#{box.url}', alt='#{box.title}', height='240px', width='240px', style='border-radius: 100%; margin-left:25px')
                   .title-post
                     a(href='Stories/id=#{box.id}')
                      h2(align='center') #{box.title}
