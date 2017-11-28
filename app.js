@@ -9,6 +9,16 @@ cookie_parser=require("cookie-parser"),
 file_upload=require("express-fileupload")
 port=(process.env.PORT||8080)
 
+function error404(rep,res,next){
+  let error=new Error(),
+  locals={
+    title:'Error 404 :(',
+    description: 'The resource was not found',
+    error:error
+  }
+  error.status=404
+  res.render('error',locals)
+}
 
 app
 .set('views','views')
@@ -20,4 +30,5 @@ app
 .use(body_parser.urlencoded({extended:true}))
 .use('/',route)
 .use(express.static('public'))
+.use(error404)
 module.exports=app

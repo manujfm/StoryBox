@@ -49,14 +49,6 @@
         .footer-container {
             border-top: 1px solid #ECE7E7;
         }
-        
-        .logo{
-            display: block;
-            height: 400px;
-            width: 800px;
-            margin-left: 190px;
-            margin-top: 10px;
-        }
 
 
          .social-media-icon>.navbar{
@@ -142,21 +134,6 @@
             color: grey
         }
 
-        .booknote{
-            background-image: url("../doc/images/aside3.jpg");
-            background-size: cover;
-            padding: 61px 2px 102px 64px;
-            text-align: center;
-        }
-
-        .booknote>p{
-           width: 240px;
-           font-size: 14px;  
-           margin: 0 0 0 0;
-        }
-
-
-
 
         /*TRENDING*/
     .popular-post{
@@ -201,4 +178,22 @@
     margin: 0 auto;
     width: 60%;
     padding: 0 0 40px 0;
+}
+
+.image-responsive{
+    width:100%;
+    height: auto
+;}
+
+.booknote{
+    font-size: 30px
+}
+
+.changeFont{
+    font-size: 40px;
+
+}
+
+.paraNorm>span{
+   font-family: "Oleo"
 }

@@ -4,22 +4,16 @@ var BoxController=require("../controlers/controler-box"),
     session=require("express-session"),
     app=express.Router();
 
-function error404(rep,res){
-  let error=new Error(),
-  locals={
-    title:'Error 404',
-    description: 'No se encontro el recurso',
-    error:error
-  }
-  error.status=404
-  res.render('error',locals)
-}
+
 
 app.use(session({
   secret:"12qwaszx",
   resave:false,
   saveUninitialized:true
 }))
+
+
+
 /*Routing*/
 
 
@@ -44,10 +38,5 @@ app
 
 .get("/content-manipulation", BoxController.contenManip)
 
-.get("/error", BoxController.error)
-
-
-
-//.use(error404)
 
 module.exports=app

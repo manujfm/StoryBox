@@ -91,3 +91,18 @@
     font-family: Cormorant Infant SemiBold Italic;
     src: url("../fonts/CormorantInfant-SemiBoldItalic.ttf");
 }
+
+@font-face {
+    font-family: Lobster;
+    src: url("../fonts/Lobster-Regular.ttf");
+}
+
+@font-face {
+    font-family: Beckshire;
+    src: url("../fonts/BerkshireSwash-Regular.ttf");
+}
+
+@font-face {
+    font-family: Oleo;
+    src: url("../fonts/OleoScript-Regular.ttf");
+}

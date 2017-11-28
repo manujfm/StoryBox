@@ -2,27 +2,39 @@ article(style='margin-top: 6px; padding-top: 40px;')
         .row
           .col-lg-4
             div.booknote
+              p.paraNorm(style='text-indent: 40px' align="center")
+                span(style='color:#0E6251') The 
+                span.changeFont(style='font-family:Lobster;font-size:16;color:#A2D9CE') Dreams 
+                span(style='color:#117864') in your head are a 
+                span.changeFont(style='font-family:Lobster;font-size:55px;color:#73C6B6') Glimpse 
+                span(style='color:#148F77') of the 
+                span.changeFont(style='font-family:Lobster;font-size:16;color:#45B39D') Future 
+                |. 
+                span(style='color:#17A589') The doubts in your 
+                span.changeFont(style='font-family:Lobster;font-size:16;color:#16A085') Heart 
+                span(style='color:#17A589') are a peek of the 
+                span.changeFont(style='font-family:Lobster;font-size:16;color:#138D75') Past 
+                |. 
+                span(style='color:#1ABC9C') Do not give up on the  
+                span.changeFont(style='font-family:Lobster;font-size:16;color:#138D75') Present 
+                span(style='color:#1ABC9C') . Start 
+                span.changeFont(style='font-family:Lobster;font-size:16;color:#117A65') Today
+                |.
+                span(style='color:#48C9B0') Work hard. Create your own 
+                span.changeFont(style='font-family:Lobster;font-size:16;color:#0E6655')  Story. 
+                span(style='color:#76D7C4') Tell your own tale. Rewrite 
+                span.changeFont(style='font-family:Lobster;font-size:16;color:#0B5345') Tomorrow's History 
 
-              p  What does it mean to be alive?  
-              p  How can you tell you are living?
-              p Just because your brain is working...
-              p or because you have a beating heart?...
-              p Or is about those little things that make you who you are?
-              <br>
-              p Life is too short
-              p To just do what you are told.
-              p For you to be the best you can be,
-              p For you to be as great as your dreams,
-              p Is what is needed on this world.
-              <br>
-              p So go out there and fly,
-              p Only you decide when to touch the sky
-              p So don’t you give up. Don’t you let go.
-              p For you weren’t born to pay tax and die.
-
-            div(style="display:none;background:red")
-              p  
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus aspernatur unde aliquid ratione, magni ipsam earum vero cumque dolor debitis alias, soluta asperiores ut quaerat repudiandae doloremque eos inventore ad.
+            .content
+              .content__container
+                p(style='text-indent:10px; color:#17202A; font-size:25px') BE
+                ul.content__container__list
+                  li.content__container__list__item
+                    span(style='font-size:25px;color:#6C3483') THE DIFFERENCE!
+                  li.content__container__list__item
+                    span(style='font-size:25px;color:#D35400') YOURSELF!
+                  li.content__container__list__item
+                     span(style='font-size:25px;color:#2471A3') THE CHANGE! 
 
           .col-lg-4
             .thumbnail.biografy-box
@@ -33,7 +45,7 @@ article(style='margin-top: 6px; padding-top: 40px;')
                   | Once, I was walking through the forest of my own mind. There, I found a little flower, a story waiting to be told. Suddenly, while I was staring at it, I realized that there wasn’t only one, but millions of them. They were all waiting to be told. I knew I couldn’t just leave them there, so I put as much as I could fit inside a little chest. I decided to let them grow inside it, so one day, all of them can see the light.
                 p(style="font-size:16px") My name is Jarys, and Welcome to my Story Box.
           .col-lg-4.popular-post(style='padding: 5px 25px 25px 25px')
-            h3(align='center', style="font-family: Oswald") Trending Stories
+            h3(align='center') Trending Stories
             .row
               -if(data.length)
                  -each box in data

@@ -1,1 +1,11 @@
-p #{err}
+head
+  title Error
+  link(rel='stylesheet', href='./css/bootstrap.min.css')
+
+body
+  .container 
+     .row
+       .col-lg-8.col-lg-offset-2(style="background:#dcdada; margin-top:50px; box-shadow: 3px 3px 8px grey")
+          h1=title
+          p=description
+          p #{error.stack}

@@ -227,10 +227,6 @@ var BoxModel=require('../model/sql-models'),
       // })
     }
 
-    BoxController.error=(req,res,next)=>{
-     res.render('error', data)
-    }
-
 
 
  module.exports= BoxController
