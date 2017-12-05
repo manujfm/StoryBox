@@ -97,7 +97,7 @@ var BoxModel=require('../model/sql-models'),
     			let local={
     				data:'Error de sintaxis 1'
     			}
-
+          
     			res.render('error')
     		}else{
            BoxModel.getNext(req.params.id,(err,next)=>{
