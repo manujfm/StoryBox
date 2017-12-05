@@ -98,7 +98,7 @@ var BoxModel=require('../model/sql-models'),
     				data:'Error de sintaxis 1'
     			}
           
-    			res.render('error')
+    			console.log('Error de sintaxis 1')
     		}else{
            BoxModel.getNext(req.params.id,(err,next)=>{
               if(err){
@@ -106,7 +106,7 @@ var BoxModel=require('../model/sql-models'),
                  data:'Error de sintaxis 2'
                 }
 
-                res.render('error')
+                console.log('Error de sintaxis 2')
               }else{
                 BoxModel.getPrev(req.params.id,(err,prev)=>{
                   if(err){
