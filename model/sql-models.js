@@ -21,6 +21,18 @@ var connect=require('./sql-connection'),
     	connect.query(query,cb)
     }
 
+    BoxModel.getPrev=(id,cb)=>{
+      var query="SELECT id FROM history WHERE id <"+id.split("=")[1]+" ORDER BY id DESC LIMIT 1;";
+        //console.log(query)
+        connect.query(query,cb)
+    }
+
+    BoxModel.getNext=(id,cb)=>{
+      var query="SELECT id FROM history WHERE id >"+id.split("=")[1]+" ORDER BY id ASC LIMIT 1;";
+       // console.log(query)
+        connect.query(query,cb)
+    }
+
     BoxModel.getUser=(user,cb)=>{
         var query="SELECT id FROM users WHERE user='"+user+"'";
         //console.log(query)

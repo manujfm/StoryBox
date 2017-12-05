@@ -100,13 +100,34 @@ var BoxModel=require('../model/sql-models'),
 
     			res.render('error')
     		}else{
-    			 let local= {
-                    data:row,
-                    ref:req.protocol + '://' + req.get('host') + req.originalUrl
-       	            }
-       	       res.render("histories/histories",local);
-    		}
-    	})
+           BoxModel.getNext(req.params.id,(err,next)=>{
+              if(err){
+                let local={
+                 data:'Error de sintaxis'
+                }
+
+                res.render('error')
+              }else{
+                BoxModel.getPrev(req.params.id,(err,prev)=>{
+                  if(err){
+                    let local={
+                      data:'Error de sintaxis'
+                    }
+                  }else{
+                    let local= {
+                      data:row,
+                      next:next,
+                      prev:prev,
+                      ref:req.protocol + '://' + req.get('host') + req.originalUrl
+                      }
+///console.log(local)
+                      res.render("histories/histories",local);
+                  } 
+                })
+              }
+            })
+        }
+      })
     }
 
     BoxController.loginview=(req,res,next)=>{
