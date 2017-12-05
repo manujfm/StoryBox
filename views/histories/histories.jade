@@ -103,11 +103,11 @@ html(lang='en')
                 .row.lolo(style="border-bottom: 1px solid #ECE7E7; margin:55px")
                  -if(prev!="") 
                   .col-lg-2.col-xs-3
-                   a.btn-lg(href="/Stories/id=#{prev[0].id}",type='button', style="color:black")
+                   a.btn-lg(href="/Stories/id=#{prev}",type='button', style="color:black")
                      span.glyphicon.glyphicon-menu-left(aria-hidden='true')
                  -if(next!="")
                   .col-lg-2.col-lg-offset-8.col-xs-3.col-xs-offset-2
-                   a.btn-lg(href="/Stories/id=#{next[0].id}",type='button', style="color:black")
+                   a.btn-lg(href="/Stories/id=#{next}",type='button', style="color:black")
                      span.glyphicon.glyphicon-menu-right(aria-hidden='true')
 
                 .license  

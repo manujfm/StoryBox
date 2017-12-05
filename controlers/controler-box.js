@@ -114,13 +114,15 @@ var BoxModel=require('../model/sql-models'),
                       data:'Error de sintaxis'
                     }
                   }else{
+                    next=(next=="")?"":next[0].id
+                    prev=(prev=="")?"":prev[0].id
                     let local= {
                       data:row,
                       next:next,
                       prev:prev,
                       ref:req.protocol + '://' + req.get('host') + req.originalUrl
                       }
-///console.log(local)
+console.log(local)
                       res.render("histories/histories",local);
                   } 
                 })
