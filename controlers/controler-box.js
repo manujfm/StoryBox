@@ -95,7 +95,7 @@ var BoxModel=require('../model/sql-models'),
     	BoxModel.getHistoriesById(req.params.id,(err,row)=>{
     		if(err){
     			let local={
-    				data:'Error de sintaxis'
+    				data:'Error de sintaxis 1'
     			}
 
     			res.render('error')
@@ -103,7 +103,7 @@ var BoxModel=require('../model/sql-models'),
            BoxModel.getNext(req.params.id,(err,next)=>{
               if(err){
                 let local={
-                 data:'Error de sintaxis'
+                 data:'Error de sintaxis 2'
                 }
 
                 res.render('error')
@@ -111,7 +111,7 @@ var BoxModel=require('../model/sql-models'),
                 BoxModel.getPrev(req.params.id,(err,prev)=>{
                   if(err){
                     let local={
-                      data:'Error de sintaxis'
+                      data:'Error de sintaxis 3'
                     }
                   }else{
                     next=(next=="")?"":next[0].id
@@ -122,7 +122,7 @@ var BoxModel=require('../model/sql-models'),
                       prev:prev,
                       ref:req.protocol + '://' + req.get('host') + req.originalUrl
                       }
-console.log(local)
+                    console.log(local)
                       res.render("histories/histories",local);
                   } 
                 })
