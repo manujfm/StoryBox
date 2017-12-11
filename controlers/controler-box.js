@@ -122,7 +122,7 @@ var BoxModel=require('../model/sql-models'),
                       prev:prev,
                       ref:req.protocol + '://' + req.get('host') + req.originalUrl
                       }
-                    console.log(local)
+                    //console.log(local)
                       res.render("histories/histories",local);
                   } 
                 })
