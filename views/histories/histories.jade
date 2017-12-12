@@ -110,7 +110,9 @@ html(lang='en')
                    a.btn-lg(href="/Stories/id=#{next}",type='button', style="color:black")
                      span.glyphicon.glyphicon-menu-right(aria-hidden='true')
 
-                .license  
+                .license.col-lg-12.col-lg-offset-5.col-xs-12.col-xs-offset-4 
+                   .licenceDiv 
+                      #{box.licenceDiv}
 
                 .col-lg-2
                    form(action='https://www.paypal.com/cgi-bin/webscr', method='post', target='_top')
@@ -122,7 +124,9 @@ html(lang='en')
                      img(alt='', border='0', src='https://www.paypalobjects.com/es_XC/i/scr/pixel.gif', width='1', height='1')
                 .col-lg-10    
                   p Support the author
-                
+
+
+
                 .col-lg-2
                   a.twitter-share-button(href='https://twitter.com/share?ref_src=twsrc%5Etfw', data-size='large', data-via='ajarys ', data-hashtags='StoryBox', data-lang='en', data-show-count='false') Tweet
                
@@ -147,4 +151,6 @@ html(lang='en')
     script(src='../js/jquery.js')
     script(src='../js/bootstrap.min.js')
     script(src='../js/transform.js')
+    script(src='../js/license.js')
     script(async='', src='https://platform.twitter.com/widgets.js', charset='utf-8')
+    #{data[0].licenceScript}

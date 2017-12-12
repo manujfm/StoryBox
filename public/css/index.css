@@ -197,3 +197,9 @@
 .paraNorm>span{
    font-family: "Oleo", 'Arial';
 }
+
+.license{
+    margin-top: -50px;
+    margin-bottom:50px;
+    padding: 10px
+}
