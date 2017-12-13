@@ -28,7 +28,6 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `history`
 --
 
-DROP TABLE `history`
 
 CREATE TABLE `history` (
   `id` int(11) NOT NULL COMMENT 'Id unico de la historia',
