@@ -112,9 +112,9 @@ html(lang='en')
                      span.glyphicon.glyphicon-menu-right(aria-hidden='true')
 
                 .license.col-lg-12.col-lg-offset-5.col-xs-12.col-xs-offset-4 
-                   .licenceDiv 
-                      #{box.licenseDiv}
-
+                  .licenceDiv 
+                     #{box.licenseDiv}
+              .col-lg-7.col-lg-offset-2
                 .col-lg-2
                    form(action='https://www.paypal.com/cgi-bin/webscr', method='post', target='_top')
 
@@ -137,15 +137,16 @@ html(lang='en')
                
 
                 .fb-comments(data-href="#{ref}", data-width='100%', data-numposts='5')
-                
+
+                footer
+                  .footer-container(align='center')
+                    p(style='font-size:10px') Copyright © 2017 -Jarys' Story Box- All Rights Reserved                
 
 
     -else
       p No se pudo conectar
    
-    footer
-      .footer-container(align='center')
-        p(style='font-size:10px') Copyright © 2017 -Jarys' Story Box- All Rights Reserved
+
 
 
 

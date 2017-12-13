@@ -116,6 +116,9 @@ var BoxModel=require('../model/sql-models'),
                   }else{
                     next=(next=="")?"":next[0].id
                     prev=(prev=="")?"":prev[0].id
+
+                    row[0].licenseScript=row[0].licenseScript.replace(/-/g,"'")
+
                     let local= {
                       data:row,
                       next:next,
@@ -169,9 +172,15 @@ var BoxModel=require('../model/sql-models'),
        // console.log(req.body)
        // console.log(req.files.file_upload.mimetype)
 
+       //Server  
        const dir_file='/home/storybox/public/doc/images/';
        const dir_file_cube='/home/storybox/public/doc/cubesimages/';
 
+       //Ubuntu
+      // const dir_file='/opt/lampp/htdocs/storybox/public/doc/images/';
+       //const dir_file_cube='/opt/lampp/htdocs/storybox/public/doc/cubesimages/';  
+
+        //Windows
         //const dir_file='C:/xampp/htdocs/storybox/public/doc/images/';
         //const dir_file_cube='C:/xampp/htdocs/storybox/public/doc/cubesimages/';
         
@@ -240,14 +249,6 @@ var BoxModel=require('../model/sql-models'),
 
         })
 
-
-
-
-
-
-                //})   
-           // }
-      // })
     }
 
 

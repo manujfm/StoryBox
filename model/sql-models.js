@@ -46,16 +46,27 @@ var connect=require('./sql-connection'),
     }
 
     BoxModel.insertData=(data, filename,filename_cube, cb)=>{
+        console.log(data)
         if(filename_cube){
-         var query= "INSERT INTO history (history, summary, title, date, category, url, validstory, imagecube) VALUES ('"+data.history+"','"+data.summary+"','"+data.title+"','"+data.date+"','"+data.category+"','"+filename+"','"+data.data_valid_cube+"','"+filename_cube+"')"
+            data.scriptLicence=replace(data.scriptLicence)
+         var query= "INSERT INTO history (history, summary, title, date, category, url, validstory, imagecube, licenseScript, licenseDiv) VALUES ('"+data.history+"','"+data.summary+"','"+data.title+"','"+data.date+"','"+data.category+"','"+filename+"','"+data.data_valid_cube+"','"+filename_cube+"','"+data.scriptLicence+"','"+data.divLicence+"')"
          //console.log(query)
-         connect.query(query,cb)
+        connect.query(query,cb)
         }else{
-        var query= "INSERT INTO history (history, summary, title, date, category, url, validstory) VALUES ('"+data.history+"','"+data.summary+"','"+data.title+"','"+data.date+"','"+data.category+"','"+filename+"','"+data.data_valid_cube+"')"
+            data.scriptLicence=replace(data.scriptLicence)
+        var query= "INSERT INTO history (history, summary, title, date, category, url, validstory, licenseScript, licenseDiv) VALUES ('"+data.history+"','"+data.summary+"','"+data.title+"','"+data.date+"','"+data.category+"','"+filename+"','"+data.data_valid_cube+"','"+data.scriptLicence+"','"+data.divLicence+"')"
         //console.log(query)
         connect.query(query,cb)
         }
 
     }
+
+
+
+var replace=(string)=>{
+   var result= string.replace(/"|'/g,'-')
+    return result;
+}
+
 
  module.exports= BoxModel
