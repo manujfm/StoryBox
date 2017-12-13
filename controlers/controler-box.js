@@ -118,14 +118,14 @@ var BoxModel=require('../model/sql-models'),
                     prev=(prev=="")?"":prev[0].id
 
                     row[0].licenseScript=row[0].licenseScript.replace(/-/g,"'")
-
+                
                     let local= {
                       data:row,
                       next:next,
                       prev:prev,
                       ref:req.protocol + '://' + req.get('host') + req.originalUrl
                       }
-                    //console.log(local)
+                    console.log(local)
                       res.render("histories/histories",local);
                   } 
                 })
