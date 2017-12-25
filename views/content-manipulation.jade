@@ -5,61 +5,104 @@ block content
       div#Alert23
         h1(align="center") Sorry.
     -else 
-       .container
-         .row
-           .col-lg-8.col-lg-offset-2(style="padding: 53px;margin-top: 50px;box-shadow: 3px 3px 8px grey;")
-             form(method="POST" action='/content-manipulation' enctype="multipart/form-data")
-               .row
-                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")
-                   label(for='user') Historia
-                   textarea#user.form-control(type='text', name='history', placeholder='Historia')
-               .row
-                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")
-                   label(for='password') Resumen
-                   textarea#resumen.form-control(type='text', name='summary', placeholder='Resumen')
-               .row
-                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")
-                   label(for='password') Titulo
-                   input#password.form-control(type='text', name='title', placeholder='titulo')
-               .row
-                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")
-                   label(for='password') Fecha
-                   input#password.form-control(type='text', name='date', placeholder='fecha')  
-               .row
-                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")
-                  label(for="category") Categoria
+
+      div(role="tabpanel")
+
+        ul(class="nav nav-tabs nav-pills nav-justified", role="tab-list")
+
+          li(role="presentation", class="active")
+            a(href="#Add", data-toggle="tab",role="tab", aria-controls="Add") Add   
+              span(class="glyphicon glyphicon-plus" aria-hidden="true")
+
+          li(role="presentation")
+            a(href="#Modify", data-toggle="tab",role="tab", aria-controls="Modify") Modify   
+              span(class="glyphicon glyphicon-pencil" aria-hidden="true")
+
+          li(role="presentation")
+            a(href="#Delete", data-toggle="tab",role="tab", aria-controls="Delete") Delete   
+              span(class="glyphicon glyphicon-remove" aria-hidden="true")
+
+      div(class="tab-content")
+
+        div(role="tabpanel", class="tab-pane fade in active", id="Add")
+         .container
+           .row
+             .col-lg-8.col-lg-offset-2(style="padding: 53px;margin-top: 50px;box-shadow: 3px 3px 8px grey;")
+               form(method="POST" action='/content-manipulation' enctype="multipart/form-data")
+                 .row
+                   .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                     label(for='user') Historia
+                     textarea#user.form-control(type='text', name='history', placeholder='Historia')
+                 .row
+                   .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                     label(for='password') Resumen
+                     textarea#resumen.form-control(type='text', name='summary', placeholder='Resumen')
+                 .row
+                   .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                     label(for='password') Titulo
+                     input#password.form-control(type='text', name='title', placeholder='titulo')
+                 .row
+                   .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                     label(for='password') Fecha
+                     input#password.form-control(type='text', name='date', placeholder='fecha')  
+                 .row
+                   .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                    label(for="category") Categoria
+                    select#category.form-control(name="category")
+                     option(value="1") The Weekly Jarys
+                     option(value="2") True Story
+                     option(value="3") Short Stories
+                     option(value="4") Story Cubes
+                  .row
+                    .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                      label(for="divLicense") Div Licencia
+                      input#divLicence.form-control(name="divLicence", placeholder="Codico DIV de la licencia")    
+                  .row
+                    .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                      label(for="scriptLicense") Script Licencia
+                      input#scripLicence.form-control(name="scriptLicence", placeholder="Codico Script de la licencia")                      
+                  .row
+                   .col-lg-8.col-lg-offset-2(style="margin-top:10px")                 
+                    label(for='data_valid_cube') Valid Cube
+                    p(style="background:red; color:yellow") NO TOCAR DONT TOUCH
+                    input#data_valid_cube.form-control(type="text", name="data_valid_cube", value="0")  
+                       
+                 .row
+                   .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                     label(for="file_upload") Upload
+                     input#file_upload(type="file", name="file_upload")
+
+                 .row
+                    .col-lg-8.col-lg-offset-2#file_upload_container(style="display:none")
+                      label(for="file_upload_cube") Upload StoryCube
+                      input#file_upload_cube(type="file",name="file_upload_cube")
+
+                 .row
+                   .col-lg-1.col-lg-offset-8(style="margin-top:10px")    	
+                     button.btn.btn-md.btn-info(type='submit') Send
+       
+        div(role="tabpanel", class="tab-pane fade ", id="Modify")
+         .container
+           .row
+             .col-lg-8.col-lg-offset-2(style="padding: 53px;margin-top: 50px;box-shadow: 3px 3px 8px grey;")
+
+                form(method="POST")  
                   select#category.form-control(name="category")
-                   option(value="1") The Weekly Jarys
-                   option(value="2") True Story
-                   option(value="3") Short Stories
-                   option(value="4") Story Cubes
-                .row
-                  .col-lg-8.col-lg-offset-2(style="margin-top:10px")
-                    label(for="divLicense") Div Licencia
-                    input#divLicence.form-control(name="divLicence", placeholder="Codico DIV de la licencia")    
-                .row
-                  .col-lg-8.col-lg-offset-2(style="margin-top:10px")
-                    label(for="scriptLicense") Script Licencia
-                    input#scripLicence.form-control(name="scriptLicence", placeholder="Codico Script de la licencia")                      
-                .row
-                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")                 
-                  label(for='data_valid_cube') Valid Cube
-                  p(style="background:red; color:yellow") NO TOCAR DONT TOUCH
-                  input#data_valid_cube.form-control(type="text", name="data_valid_cube", value="0")  
-                     
-               .row
-                 .col-lg-8.col-lg-offset-2(style="margin-top:10px")
-                   label(for="file_upload") Upload
-                   input#file_upload(type="file", name="file_upload")
+                   -if(data.length)
+                     -each box in data
+                        option(value="#{box.id}") #{box.title}
+                  button(type="submit", class="btn btn-default", style="margin-top:10px") Send
 
-               .row
-                  .col-lg-8.col-lg-offset-2#file_upload_container(style="display:none")
-                    label(for="file_upload_cube") Upload StoryCube
-                    input#file_upload_cube(type="file",name="file_upload_cube")
 
-               .row
-                 .col-lg-1.col-lg-offset-8(style="margin-top:10px")    	
-                   button.btn.btn-md.btn-info(type='submit') Send
-  script(src='../js/jquery.js')
-  script(src='../js/bootstrap.min.js')
-  script(src='../js/content-manipulation.js')
+        div(role="tabpanel", class="tab-pane fade ", id="Delete")
+                        
+
+
+
+
+
+
+
+    script(src='../js/jquery.js')
+    script(src='../js/bootstrap.min.js')
+    script(src='../js/content-manipulation.js')

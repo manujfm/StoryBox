@@ -142,7 +142,7 @@ var BoxModel=require('../model/sql-models'),
 
     BoxController.validateUser=(req,res,next)=>{
      // console.log(req.body.password)
-        BoxModel.getUser(req.body.user,(err,row)=>{
+        BoxModel.getUser(req.body.user.toLowerCase(),(err,row)=>{
             if(row!=""){
                BoxModel.getUserData(row[0].id,(err,rowData)=>{
                  bcrypt.compare(req.body.Password,rowData[0].password,(err,valid)=>{
@@ -164,8 +164,23 @@ var BoxModel=require('../model/sql-models'),
 
     BoxController.contenManip=(req,res,next)=>{
         //console.log(req.session.user)
-        var user=req.session.user
-        res.render("content-manipulation",{user})
+       BoxModel.getAll((err,row)=>{
+        if(err){
+          let local={
+            data:'Error de sintaxis'
+          }
+
+          res.render('error')
+        }else{
+          let locals={
+            data:row,
+            user:req.session.user
+          }
+
+          res.render("content-manipulation",locals)
+        }
+      })
+
     }
 
     BoxController.dataContent=(req,res,next)=>{
@@ -177,7 +192,7 @@ var BoxModel=require('../model/sql-models'),
        const dir_file_cube='/home/storybox/public/doc/cubesimages/';
 
        //Ubuntu
-      // const dir_file='/opt/lampp/htdocs/storybox/public/doc/images/';
+       // const dir_file='/opt/lampp/htdocs/storybox/public/doc/images/';
        //const dir_file_cube='/opt/lampp/htdocs/storybox/public/doc/cubesimages/';  
 
         //Windows
