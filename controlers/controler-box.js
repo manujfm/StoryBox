@@ -184,10 +184,46 @@ var BoxModel=require('../model/sql-models'),
     }
 
     BoxController.dataContent=(req,res,next)=>{
-       // console.log(req.body)
+      // console.log(req.body)
+       //res.send(req.body.category)
        // console.log(req.files.file_upload.mimetype)
+      modifyContent(req,res,next)
+       //insertContent();
 
-       //Server  
+
+    }
+
+function modifyContent(req,res,next){
+
+    BoxModel.getHistoriesById("id="+req.body.idHistory,(err,row)=>{
+        if(err){
+          let local={
+            data:'Error de sintaxis 1'
+          }
+          
+          console.log('Error de sintaxis 1')
+        }else{
+
+          let local={
+            data:row,
+            error:null
+          }
+
+          res.send(local)
+        }
+      })  
+
+}
+
+
+
+
+
+
+
+
+function insertContent(req, res, next){
+          //Server  
        const dir_file='/home/storybox/public/doc/images/';
        const dir_file_cube='/home/storybox/public/doc/cubesimages/';
 
@@ -262,10 +298,7 @@ var BoxModel=require('../model/sql-models'),
 
           }
 
-        })
-
-    }
-
-
+    })
+}
 
  module.exports= BoxController

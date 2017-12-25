@@ -85,14 +85,23 @@ block content
          .container
            .row
              .col-lg-8.col-lg-offset-2(style="padding: 53px;margin-top: 50px;box-shadow: 3px 3px 8px grey;")
-
-                form(method="POST")  
-                  select#category.form-control(name="category")
-                   -if(data.length)
-                     -each box in data
-                        option(value="#{box.id}") #{box.title}
-                  button(type="submit", class="btn btn-default", style="margin-top:10px") Send
-
+               .row
+                  form#ModData(method="POST")  
+                    select#categoryMod.form-control(name="idHistory")
+                     -if(data.length)
+                       -each box in data
+                          option(value="#{box.id}") #{box.title}
+                    button#BtnMod( type="button",class="btn btn-default", style="margin-top:10px") Send
+                .row#spinnerContainer
+                  .col-lg-5.col-lg-offset-5(style="margin-top:70px")
+                   .preloader-wrapper.big.active
+                     .spinner-layer.spinner-blue-only
+                       .circle-clipper.left
+                          .circle
+                       .gap-patch
+                          .circle
+                       .circle-clipper.right
+                          .circle
 
         div(role="tabpanel", class="tab-pane fade ", id="Delete")
                         
@@ -104,5 +113,6 @@ block content
 
 
     script(src='../js/jquery.js')
+    script(src="../js/dataForm.js")
     script(src='../js/bootstrap.min.js')
     script(src='../js/content-manipulation.js')
