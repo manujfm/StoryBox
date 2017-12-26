@@ -165,35 +165,51 @@ var BoxModel=require('../model/sql-models'),
     BoxController.contenManip=(req,res,next)=>{
         //console.log(req.session.user)
        BoxModel.getAll((err,row)=>{
-        if(err){
-          let local={
-            data:'Error de sintaxis'
+          if(err){
+            let local={
+              data:'Error de sintaxis'
+            }
+
+            res.render('error')
+          }else{
+            let locals={
+              data:row,
+              user:req.session.user
+            }
+
+            res.render("content-manipulation",locals)
           }
-
-          res.render('error')
-        }else{
-          let locals={
-            data:row,
-            user:req.session.user
-          }
-
-          res.render("content-manipulation",locals)
-        }
-      })
-
+        })
     }
 
     BoxController.dataContent=(req,res,next)=>{
-      // console.log(req.body)
-       //res.send(req.body.category)
-       // console.log(req.files.file_upload.mimetype)
-      modifyContent(req,res,next)
-       //insertContent();
+      var data=req.body,
+      tam=Object.keys(data).length;
+      // console.log(req.files.file_upload.mimetype)
+
+      if(tam==7){
+
+        modifyConten(req,res,next)
+
+      }else if (tam==1) {
+
+        getModifyContent(req,res,next)  
+
+      }else{
+
+        //insertContent(req,res,next);
+
+      }
+      
+       
 
 
     }
 
-function modifyContent(req,res,next){
+
+
+
+function getModifyContent(req,res,next){
 
     BoxModel.getHistoriesById("id="+req.body.idHistory,(err,row)=>{
         if(err){
@@ -212,14 +228,7 @@ function modifyContent(req,res,next){
           res.send(local)
         }
       })  
-
 }
-
-
-
-
-
-
 
 
 function insertContent(req, res, next){

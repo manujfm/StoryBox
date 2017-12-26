@@ -92,7 +92,8 @@ block content
                        -each box in data
                           option(value="#{box.id}") #{box.title}
                     button#BtnMod( type="button",class="btn btn-default", style="margin-top:10px") Send
-                .row#spinnerContainer
+
+               .row#spinnerContainer(style="display:none")
                   .col-lg-5.col-lg-offset-5(style="margin-top:70px")
                    .preloader-wrapper.big.active
                      .spinner-layer.spinner-blue-only
@@ -102,6 +103,53 @@ block content
                           .circle
                        .circle-clipper.right
                           .circle
+
+               .row#formModContainer(style="display:none")
+
+                 form#formMod(method="POST" action='/content-manipulation')
+
+                   .row
+                     .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                       label(for='user') Historia
+                       textarea#history_Mod.form-control(type='text', name='history', placeholder='Historia')
+
+                   .row
+                     .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                       label(for='password') Resumen
+                       textarea#resumen_Mod.form-control(type='text', name='summary', placeholder='Resumen')
+
+                   .row
+                     .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                       label(for='password') Fecha
+                       input#fecha_Mod.form-control(type='text', name='date', placeholder='fecha') 
+
+                   .row
+                     .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                      label(for="category") Categoria
+                      select#category_Mod.form-control(name="category")
+                       option(value="1") The Weekly Jarys
+                       option(value="2") True Story
+                       option(value="3") Short Stories
+                       option(value="4") Story Cubes
+
+                    .row
+                      .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                        label(for="divLicense") Div Licencia
+                        input#divLicence_Mod.form-control(name="divLicence", placeholder="Codico DIV de la licencia")
+
+                    .row
+                      .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                        label(for="scriptLicense") Script Licencia
+                        input#scripLicence_Mod.form-control(name="scriptLicence", placeholder="Codico Script de la licencia")                      
+                    .row
+                     .col-lg-8.col-lg-offset-2(style="margin-top:10px")                 
+                      label(for='data_valid_cube') Valid Cube
+                      p(style="background:red; color:yellow") NO TOCAR DONT TOUCH
+                      input#data_valid_cube_Mod.form-control(type="text", name="data_valid_cube", value="0") 
+
+                    .row
+                     .col-lg-3.col-lg-offset-9(style="margin-top:10px")                 
+                       button.btn.btn-info(type="submit") Send
 
         div(role="tabpanel", class="tab-pane fade ", id="Delete")
                         
