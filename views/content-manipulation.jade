@@ -91,7 +91,7 @@ block content
                      -if(data.length)
                        -each box in data
                           option(value="#{box.id}") #{box.title}
-                    button#BtnMod( type="button",class="btn btn-default", style="margin-top:10px") Send
+                    button#BtnMod( type="button",class="btn btn-default", style="margin-top:10px") Search
 
                .row#spinnerContainer(style="display:none")
                   .col-lg-5.col-lg-offset-5(style="margin-top:70px")
@@ -109,6 +109,11 @@ block content
                  form#formMod(method="POST" action='/content-manipulation')
 
                    .row
+                     .col-lg-8.col-lg-offset-2.hide(style="margin-top:10px")
+                       label(for='password') ID
+                       input#id_Mod.form-control(type='text', name='idMod', placeholder='fecha') 
+
+                   .row
                      .col-lg-8.col-lg-offset-2(style="margin-top:10px")
                        label(for='user') Historia
                        textarea#history_Mod.form-control(type='text', name='history', placeholder='Historia')
@@ -122,6 +127,11 @@ block content
                      .col-lg-8.col-lg-offset-2(style="margin-top:10px")
                        label(for='password') Fecha
                        input#fecha_Mod.form-control(type='text', name='date', placeholder='fecha') 
+
+                   .row
+                     .col-lg-8.col-lg-offset-2(style="margin-top:10px")
+                       label(for='password') Titulo
+                       input#title_Mod.form-control(type='text', name='title', placeholder='fecha')    
 
                    .row
                      .col-lg-8.col-lg-offset-2(style="margin-top:10px")
@@ -142,7 +152,7 @@ block content
                         label(for="scriptLicense") Script Licencia
                         input#scripLicence_Mod.form-control(name="scriptLicence", placeholder="Codico Script de la licencia")                      
                     .row
-                     .col-lg-8.col-lg-offset-2(style="margin-top:10px")                 
+                     .col-lg-8.col-lg-offset-2.hide(style="margin-top:10px")                 
                       label(for='data_valid_cube') Valid Cube
                       p(style="background:red; color:yellow") NO TOCAR DONT TOUCH
                       input#data_valid_cube_Mod.form-control(type="text", name="data_valid_cube", value="0") 
@@ -152,7 +162,30 @@ block content
                        button.btn.btn-info(type="submit") Send
 
         div(role="tabpanel", class="tab-pane fade ", id="Delete")
-                        
+          .container
+             .row
+               .col-lg-8.col-lg-offset-2(style="padding: 53px;margin-top: 50px;box-shadow: 3px 3px 8px grey;")
+                 .row
+                    table.table.table-striped
+                      thead
+                        tr
+                          th ID
+                          th History
+                          th Summary
+                          th Title
+                          th Date
+                          th Category
+                      tbody
+                        tr
+
+
+                    form#ModData(method="POST")  
+                      select#categoryMod.form-control(name="idHistory")
+                       -if(data.length)
+                         -each box in data
+                            option(value="#{box.id}") #{box.title}
+                      button#BtnMod( type="button",class="btn btn-default", style="margin-top:10px") Search
+                  
 
 
 

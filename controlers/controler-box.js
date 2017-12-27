@@ -136,9 +136,9 @@ var BoxModel=require('../model/sql-models'),
     }
 
     BoxController.loginview=(req,res,next)=>{
-        res.render("login")
-        next()
-    }
+        res.render("login")   
+               }
+
 
     BoxController.validateUser=(req,res,next)=>{
      // console.log(req.body.password)
@@ -186,9 +186,8 @@ var BoxModel=require('../model/sql-models'),
       var data=req.body,
       tam=Object.keys(data).length;
       // console.log(req.files.file_upload.mimetype)
-
-      if(tam==7){
-
+      if(req.body.idMod!=null&&tam!=1){
+       
         modifyConten(req,res,next)
 
       }else if (tam==1) {
@@ -197,19 +196,27 @@ var BoxModel=require('../model/sql-models'),
 
       }else{
 
-        //insertContent(req,res,next);
+        insertContent(req,res,next);
 
       }
-      
-       
-
-
     }
 
 
+var modifyConten=(req, res, next)=>{
+   BoxModel.updateData(req.body.idMod, req.body,(err,row)=>{
+     if(err){
+       console.log("Error de sintaxis(UPDATE)")
+     }else{
+       console.log("Update exitoso")
+       res.redirect("/content-manipulation")
+       res.end();
+
+     }
+   })
+}    
 
 
-function getModifyContent(req,res,next){
+var getModifyConten=(req,res,next)=>{
 
     BoxModel.getHistoriesById("id="+req.body.idHistory,(err,row)=>{
         if(err){
@@ -231,13 +238,13 @@ function getModifyContent(req,res,next){
 }
 
 
-function insertContent(req, res, next){
-          //Server  
+var insertContent=(req, res, next)=>{
+       //Server  
        const dir_file='/home/storybox/public/doc/images/';
        const dir_file_cube='/home/storybox/public/doc/cubesimages/';
 
        //Ubuntu
-       // const dir_file='/opt/lampp/htdocs/storybox/public/doc/images/';
+       //const dir_file='/opt/lampp/htdocs/storybox/public/doc/images/';
        //const dir_file_cube='/opt/lampp/htdocs/storybox/public/doc/cubesimages/';  
 
         //Windows
@@ -298,16 +305,16 @@ function insertContent(req, res, next){
                      res.redirect("/content-manipulation")
                      res.end();
 
-                  }
+                    }
 
-              })
+                })
 
 
-            }
+               }
 
-          }
+             }
 
-    })
+         })
 }
 
  module.exports= BoxController

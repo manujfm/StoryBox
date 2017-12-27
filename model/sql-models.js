@@ -46,7 +46,7 @@ var connect=require('./sql-connection'),
     }
 
     BoxModel.insertData=(data, filename,filename_cube, cb)=>{
-        console.log(data)
+        //console.log(data)
         if(filename_cube){
             data.scriptLicence=replace(data.scriptLicence)
          var query= "INSERT INTO history (history, summary, title, date, category, url, validstory, imagecube, licenseScript, licenseDiv) VALUES ('"+data.history+"','"+data.summary+"','"+data.title+"','"+data.date+"','"+data.category+"','"+filename+"','"+data.data_valid_cube+"','"+filename_cube+"','"+data.scriptLicence+"','"+data.divLicence+"')"
@@ -58,9 +58,17 @@ var connect=require('./sql-connection'),
         //console.log(query)
         connect.query(query,cb)
         }
-
+    }
+    
+    BoxModel.updateData=(id,data,cb)=>{
+        var query="UPDATE history SET title='"+data.title+"', history='"+data.history+"' ,category='"+data.category+"', summary='"+data.summary +"', date='"+data.date+"',  licenseScript='"+data.scriptLicence+"', licenseDiv='"+data.divLicence+"' WHERE id="+id
+       //console.log(query)
+       connect.query(query,cb)
     }
 
+    BoxModel.deleteData=(id,cb)=>{
+
+    }
 
 
 var replace=(string)=>{

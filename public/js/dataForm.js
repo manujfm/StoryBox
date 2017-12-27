@@ -13,18 +13,21 @@ $(document).ready(function() {
 		    }).then(function(response) {
 		    	 var data=response,
 		    	     form=$("#formMod").find(':input');
-                      console.log(data)
+                     // console.log(data)
 
 		        setTimeout(function(){
                    $("#spinnerContainer").css("display","none");
+ 
 
-                    form[0].value=data.data[0].history
-                    form[1].value=data.data[0].summary
-                    form[2].value=data.data[0].date
-                    form[3].value=data.data[0].category
-                    form[4].value=data.data[0].licenseDiv
-                    form[5].value=data.data[0].licenseScript
-                    form[6].value=data.data[0].validstory
+                    form[0].value=data.data[0].id
+                    form[1].value=data.data[0].history
+                    form[2].value=data.data[0].summary
+                    form[3].value=data.data[0].date
+                    form[4].value=data.data[0].title
+                    form[5].value=data.data[0].category
+                    form[6].value=data.data[0].licenseDiv
+                    form[7].value=data.data[0].licenseScript
+                    form[8].value=data.data[0].validstory
 
                    $("#formModContainer").fadeIn('slow')
 		        },3000)
