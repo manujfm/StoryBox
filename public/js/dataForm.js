@@ -7,7 +7,7 @@ $(document).ready(function() {
 	  var form=$("#ModData").find(':input'), arr={"idHistory":form[0].value};
 
 		jQuery.ajax({
-		      url: 'http://localhost:8080/content-manipulation',
+		      url: 'http://jarystorybox.com/content-manipulation',
 		      data: arr,
 		      type: 'POST',
 		    }).then(function(response) {

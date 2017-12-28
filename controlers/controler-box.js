@@ -125,7 +125,7 @@ var BoxModel=require('../model/sql-models'),
                       prev:prev,
                       ref:req.protocol + '://' + req.get('host') + req.originalUrl
                       }
-                    console.log(local)
+                    //console.log(local)
                       res.render("histories/histories",local);
                   } 
                 })
@@ -187,20 +187,39 @@ var BoxModel=require('../model/sql-models'),
       tam=Object.keys(data).length;
       // console.log(req.files.file_upload.mimetype)
       if(req.body.idMod!=null&&tam!=1){
-       
-        modifyConten(req,res,next)
+        
+                console.log('Modificar') 
+        //modifyConten(req,res,next)
 
-      }else if (tam==1) {
+      }else if (tam==1&&req.body.idDel==null) {
 
-        getModifyContent(req,res,next)  
+               console.log('Traer Contenido')
+        //getModifyContent(req,res,next) 
+
+      }else if(tam==1&&req.body.idDel!=null){ 
+
+              console.log('Eliminar Contenido')
 
       }else{
 
-        insertContent(req,res,next);
+              console.log('Agregar Contenido') 
+        //insertContent(req,res,next);
 
       }
     }
 
+
+var deleteContent=(req, res, next)=>{
+  BoxModel.deleteData(req.body.idDel, req.body,(err,row)=>{
+    if(err){
+      console.log("Error de sintaxis(DELETE)")
+    }else{
+      console.log("Update exitoso")
+       res.redirect("/content-manipulation")
+       res.end();
+    }
+  })
+}
 
 var modifyConten=(req, res, next)=>{
    BoxModel.updateData(req.body.idMod, req.body,(err,row)=>{

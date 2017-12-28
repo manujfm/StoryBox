@@ -175,22 +175,24 @@ block content
                           th Title
                           th Date
                           th Category
+                          th Action
                       tbody
-                        tr
+                        -if(data.length)
+                          -each box in data
+                             tr
+                               th #{box.id}
+                               th 
+                                  p(style="height:200px; overflow:scroll") #{box.history}
+                               th 
+                                  p(style="height:200px; overflow:scroll") #{box.summary}
+                               th #{box.title}
+                               th #{box.date}
+                               th #{box.category}
+                               th 
+                                 button.btn.btn-sm.delBtn(type='button', style='margin-left:5px', aria-label='Left Align')
+                                   span.glyphicon.glyphicon.glyphicon-trash(aria-hidden='true')
 
-
-                    form#ModData(method="POST")  
-                      select#categoryMod.form-control(name="idHistory")
-                       -if(data.length)
-                         -each box in data
-                            option(value="#{box.id}") #{box.title}
-                      button#BtnMod( type="button",class="btn btn-default", style="margin-top:10px") Search
                   
-
-
-
-
-
 
 
     script(src='../js/jquery.js')

@@ -6,7 +6,7 @@ var connect=require('./sql-connection'),
 
     BoxModel.getAll=(cb)=>{
 
-      connect.query('SELECT * FROM history',cb)
+      connect.query('SELECT * FROM history WHERE status=1',cb)
     }
 
     BoxModel.getCategorriesByID=(id,cb)=>{
@@ -16,19 +16,19 @@ var connect=require('./sql-connection'),
     }
 
     BoxModel.getHistoriesById=(id,cb)=>{
-    	var query='SELECT * FROM history WHERE '+id
+    	var query='SELECT * FROM history WHERE '+id+ ' AND status=1'
     	//console.log(query)
     	connect.query(query,cb)
     }
 
     BoxModel.getPrev=(id,cb)=>{
-      var query="SELECT id FROM history WHERE id <"+id.split("=")[1]+" ORDER BY id DESC LIMIT 1;";
+      var query="SELECT id FROM history WHERE id <"+id.split("=")[1]+" AND status=1 ORDER BY id DESC LIMIT 1;";
       //  console.log(query)
         connect.query(query,cb)
     }
 
     BoxModel.getNext=(id,cb)=>{
-      var query="SELECT id FROM history WHERE id >"+id.split("=")[1]+" ORDER BY id ASC LIMIT 1;";
+      var query="SELECT id FROM history WHERE id >"+id.split("=")[1]+" AND status=1 ORDER BY id ASC LIMIT 1;";
        // console.log(query)
         connect.query(query,cb)
     }
@@ -49,12 +49,12 @@ var connect=require('./sql-connection'),
         //console.log(data)
         if(filename_cube){
             data.scriptLicence=replace(data.scriptLicence)
-         var query= "INSERT INTO history (history, summary, title, date, category, url, validstory, imagecube, licenseScript, licenseDiv) VALUES ('"+data.history+"','"+data.summary+"','"+data.title+"','"+data.date+"','"+data.category+"','"+filename+"','"+data.data_valid_cube+"','"+filename_cube+"','"+data.scriptLicence+"','"+data.divLicence+"')"
+         var query= "INSERT INTO history (history, summary, title, date, category, url, validstory, imagecube, licenseScript, licenseDiv, status) VALUES ('"+data.history+"','"+data.summary+"','"+data.title+"','"+data.date+"','"+data.category+"','"+filename+"','"+data.data_valid_cube+"','"+filename_cube+"','"+data.scriptLicence+"','"+data.divLicence+"', 1)"
          //console.log(query)
         connect.query(query,cb)
         }else{
             data.scriptLicence=replace(data.scriptLicence)
-        var query= "INSERT INTO history (history, summary, title, date, category, url, validstory, licenseScript, licenseDiv) VALUES ('"+data.history+"','"+data.summary+"','"+data.title+"','"+data.date+"','"+data.category+"','"+filename+"','"+data.data_valid_cube+"','"+data.scriptLicence+"','"+data.divLicence+"')"
+        var query= "INSERT INTO history (history, summary, title, date, category, url, validstory, licenseScript, licenseDiv, status) VALUES ('"+data.history+"','"+data.summary+"','"+data.title+"','"+data.date+"','"+data.category+"','"+filename+"','"+data.data_valid_cube+"','"+data.scriptLicence+"','"+data.divLicence+"',1)"
         //console.log(query)
         connect.query(query,cb)
         }
@@ -67,7 +67,8 @@ var connect=require('./sql-connection'),
     }
 
     BoxModel.deleteData=(id,cb)=>{
-
+        var query="UPDATE history SET status=0 WHERE id="+id
+        console.log(query)
     }
 
 
