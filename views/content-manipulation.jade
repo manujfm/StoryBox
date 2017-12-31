@@ -189,9 +189,9 @@ block content
                                th #{box.date}
                                th #{box.category}
                                th 
-                                 button.btn.btn-sm.delBtn(type='button', style='margin-left:5px', aria-label='Left Align')
+                                 button.btn.btn-sm(id="#{box.id}", type='button',style='margin-left:5px', aria-label='Left Align', onclick="delBtnFunction(#{box.id})")
                                    span.glyphicon.glyphicon.glyphicon-trash(aria-hidden='true')
-
+                                 
                   
 
 

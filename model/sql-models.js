@@ -68,7 +68,8 @@ var connect=require('./sql-connection'),
 
     BoxModel.deleteData=(id,cb)=>{
         var query="UPDATE history SET status=0 WHERE id="+id
-        console.log(query)
+       // console.log(query)
+        connect.query(query,cb)
     }
 
 

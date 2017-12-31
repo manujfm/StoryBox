@@ -188,22 +188,23 @@ var BoxModel=require('../model/sql-models'),
       // console.log(req.files.file_upload.mimetype)
       if(req.body.idMod!=null&&tam!=1){
         
-                console.log('Modificar') 
-        //modifyConten(req,res,next)
+                //console.log('Modificar') 
+        modifyConten(req,res,next)
 
       }else if (tam==1&&req.body.idDel==null) {
 
-               console.log('Traer Contenido')
-        //getModifyContent(req,res,next) 
+               //console.log('Traer Contenido')
+        getModifyContent(req,res,next) 
 
       }else if(tam==1&&req.body.idDel!=null){ 
 
-              console.log('Eliminar Contenido')
+              //console.log('Eliminar Contenido')
+        deleteContent(req, res, next)
 
       }else{
 
-              console.log('Agregar Contenido') 
-        //insertContent(req,res,next);
+              //console.log('Agregar Contenido') 
+        insertContent(req,res,next);
 
       }
     }
@@ -214,7 +215,7 @@ var deleteContent=(req, res, next)=>{
     if(err){
       console.log("Error de sintaxis(DELETE)")
     }else{
-      console.log("Update exitoso")
+       res.send("Delete exitoso")
        res.redirect("/content-manipulation")
        res.end();
     }
@@ -235,7 +236,7 @@ var modifyConten=(req, res, next)=>{
 }    
 
 
-var getModifyConten=(req,res,next)=>{
+var getModifyContent=(req,res,next)=>{
 
     BoxModel.getHistoriesById("id="+req.body.idHistory,(err,row)=>{
         if(err){
