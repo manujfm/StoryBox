@@ -149,7 +149,9 @@ var BoxModel=require('../model/sql-models'),
                     //console.log(valid)
                     var message="Contraseña Incorrecta";
                     if(valid){
+                        req.session.times=rowData[0].times
                         req.session.user="manuel" 
+                       // console.log(req.session.times)
                         res.redirect("/content-manipulation")
                     }else{
                       res.render("login",{message})}
@@ -172,9 +174,11 @@ var BoxModel=require('../model/sql-models'),
 
             res.render('error')
           }else{
+
             let locals={
               data:row,
-              user:req.session.user
+              user:req.session.user,
+              time:req.session.times
             }
 
             res.render("content-manipulation",locals)
