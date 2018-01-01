@@ -1,15 +1,18 @@
 ///No tiene nada que ver con el con
+jQuery(document).ready(function($) {
+	$("#missUBtn").click(function(event) {
 
-function insertDataMiss(id){
-	console.log('hola')
-    console.log(id)
-	// $.ajax({
-	// 	url: '/path/to/file',
-	// 	type: 'POST',
-	// 	data: {'data': id},
-	// })
-	// .done(function() {
-	// 	console.log("success");
-	// })
-}
+       $.ajax({
+       	type:"POST",
+       	url: 'http://jarystorybox.com/missulogin',
+       	data: {"count": this.name},
+       })
+       .done(function() {
+       	console.log("success");
+       })
+ 
+    
+	});
+});
+
 	

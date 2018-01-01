@@ -136,6 +136,7 @@ var BoxModel=require('../model/sql-models'),
     }
 
     BoxController.loginview=(req,res,next)=>{
+        
         res.render("login")   
                }
 
@@ -211,6 +212,16 @@ var BoxModel=require('../model/sql-models'),
         insertContent(req,res,next);
 
       }
+    }
+
+    BoxController.dataMissU=(req,res,next)=>{
+      BoxModel.updateUserTimes(req.body.count,(err,row)=>{
+        if(err){
+          console.log('ERRRORRRRRRR')
+        }else{
+          res.send("Update Exitoso")
+        }
+      })
     }
 
 

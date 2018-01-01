@@ -73,6 +73,12 @@ var connect=require('./sql-connection'),
     }
 
 
+    BoxModel.updateUserTimes=(count,cb)=>{
+        var query="UPDATE users SET times="+(parseInt(count)+1);
+        connect.query(query,cb)
+    }
+
+
 var replace=(string)=>{
    var result= string.replace(/"|'/g,'-')
     return result;

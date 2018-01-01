@@ -18,6 +18,9 @@ app.use(session({
 
 
 app
+
+.post("/missulogin", BoxController.dataMissU)
+
 .post("/login" , BoxController.validateUser)
 
 .post("/content-manipulation", BoxController.dataContent)
