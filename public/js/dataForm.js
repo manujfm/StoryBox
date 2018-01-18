@@ -7,7 +7,7 @@ $(document).ready(function() {
 	     var form=$("#ModData").find(':input'), arr={"idHistory":form[0].value};
 
     		jQuery.ajax({
-    		      url: 'http://jarystorybox.com/content-manipulation',
+    		      url: 'http://localhost:8080/content-manipulation',
     		      data: arr,
     		      type: 'POST',
     		    }).then(function(response) {
@@ -46,7 +46,7 @@ function delBtnFunction(id){
         arr={"idDel":id};
         elemento2.parents("tr").fadeOut('slow')
         jQuery.ajax({
-              url: 'http://jarystorybox.com/content-manipulation',
+              url: 'http://localhost:8080/content-manipulation',
               data: arr,
               type: 'POST',
             }).then(function(response) {

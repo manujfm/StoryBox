@@ -19,13 +19,17 @@ app.use(session({
 
 app
 
+.post("/", BoxController.getAll)
+
 .post("/missulogin", BoxController.dataMissU)
 
 .post("/login" , BoxController.validateUser)
 
 .post("/content-manipulation", BoxController.dataContent)
 
-.get("/", BoxController.getAll)
+.get("/",(req,res)=>{
+	res.render("index")
+})
 
 .get("/TrueStory", BoxController.getHistoriesTS)
 
