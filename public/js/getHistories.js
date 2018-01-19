@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    let postData={"require":2332}
 
 	let data=$.ajax({
 		url: 'http://localhost:8080',
@@ -14,11 +13,10 @@ $(document).ready(function() {
           if(a.id < b.id) return 1;
           return 0;
         });
-
-        let content="";    
+   
+        let content="", count=1, pages=[], tam=arr.length;    
        
         for (let box of arr){
-	 
          content+= `
 	       <div class="col-lg-3 col-xm-12">
 
@@ -39,12 +37,42 @@ $(document).ready(function() {
 	         </div>
 	     
 	       </div>`
-        }
-    setTimeout(()=>{
-      $("#spinnerContainer").css("display","none")
-      $("#historyContent").html(content)
-    },3000)
-   
+	       if(count%8==0||count==tam){
+              pages.push(content)
+	       }
+	       count++;
+	    }
+       console.log(pages)
+       $("#historyContent").html(pages[0])
+
+       let totalPages=pages.length
+
+        $('#historyPagination').bootpag({
+            total: totalPages,
+            page: 1,
+            maxVisible: 10,
+            leaps: true,
+            firstLastUse: true,
+            first: '←',
+            last: '→',
+            wrapClass: 'pagination',
+            activeClass: 'active',
+            disabledClass: 'disabled',
+            nextClass: 'next',
+            prevClass: 'prev',
+            lastClass: 'last',
+            firstClass: 'first'
+            }).on('page', function(event, num){
+               $("#historyContent").html(pages[num - 1]); // or some ajax content loading..
+            });
+
+            setTimeout(()=>{
+       	       $("#spinnerContainer").css("display","none")
+		       //$("#historyContent").fadeIn("slow")
+			   //$("#historyPagination").fadeIn("slow")
+		    },3000)
+
+    
      //console.log(content)
 
 

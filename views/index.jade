@@ -8,11 +8,12 @@ block content
 
     main 
       article(style="border-bottom:2px solid grey; padding-bottom:62px") 
-        #historyContent.row
-          .row#spinnerContainer(style="")
-            .col-lg-5.col-lg-offset-5(style="margin-top:70px")
-               .row#spinnerContainer(style="")
-                  .col-lg-5.col-lg-offset-5(style="margin-top:70px")
+          #historyContent.row(style="")
+          #historyPagination.col-lg-5.col-lg-offset-5
+          .row#spinnerContainer
+            .col-lg-5.col-lg-offset-4
+               .row#spinnerContainer
+                  .col-lg-5.col-lg-offset-4
                    .preloader-wrapper.big.active
                      .spinner-layer.spinner-blue-only
                        .circle-clipper.left
@@ -46,4 +47,5 @@ block content
     include footer
     script(src='../js/jquery.js')
     script(src='../js/bootstrap.min.js')
+    script(src='../js/bootpag.js')
     script(src='../js/getHistories.js')
