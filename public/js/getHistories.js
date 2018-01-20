@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	let data=$.ajax({
-		url: 'http://localhost:8080',
+		url: 'http://jarystorybox.com/',
 		type: 'POST',
 	})
 	.done(function(data) {
