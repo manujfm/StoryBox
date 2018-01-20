@@ -47,15 +47,29 @@ article(style='margin-top: 6px; padding-top: 40px;')
           .col-lg-4.popular-post(style='padding: 5px 25px 25px 25px')
             h3(align='center') Trending Stories
             .row
-              -if(data.length)
-                 -each box in data
-                   .col-lg-12(style="background-image: url('#{box.url}'); background-size:  cover;")
-                     a(href='Stories/id=#{box.id}')
-                      h4.trending-title #{box.title}
-                     p(style='color: grey')
-                      | #{box.summary}
-              -else
-                p No se pudo conectar con la BD
-            
-   
+             .col-lg-12(style="background-image: url(' doc/images/smoke.jpg'); background-size:  cover;")
+                a(href='Stories/id=3')
+                 h4.trending-title Smoke
+                p(style='color: grey')
+                  |  Not all those who come from fire are ashes...
+             .col-lg-12(style="background-image: url('doc/images/13122017224457.jpeg'); background-size:  cover;")
+                a(href='Stories/id=7')
+                 h4.trending-title In a Second
+                p(style='color: grey')
+                  |  Have you ever thought about how life passes in just a second?
+             .col-lg-12(style="background-image: url('doc/images/13122017224457.jpeg'); background-size:  cover;")
+                a(href='Stories/id=8')
+                 h4.trending-title Through the window
+                p(style='color: grey')
+                  | Nothing but a room. Nothing but a window. The outside world keeps running and changing without you . How much will it take to be forgotten?
+             .col-lg-12(style="background-image: url(' doc/images/fear.jpg'); background-size:  cover;")
+                a(href='Stories/id=2')
+                 h4.trending-title Fear of the Dark
+                p(style='color: grey')
+                  | When the darkness is all around you, the only thing left to do is to seek the light.
+             .col-lg-12(style="background-image: url(' doc/images/1712018184953.jpeg '); background-size:  cover;")
+                a(href='Stories/id=11')
+                 h4.trending-title The Ultimate Challenge
+                p(style='color: grey')
+                  | How far would people go when challenged? 
           

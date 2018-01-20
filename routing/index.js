@@ -31,13 +31,13 @@ app
 	res.render("index")
 })
 
-.get("/TrueStory", BoxController.getHistoriesTS)
+.get("/TrueStory", BoxController.getHistoriesByCategorie)
 
-.get("/StoryCubes", BoxController.getHistoriesSC)
+.get("/StoryCubes", BoxController.getHistoriesByCategorie)
 
-.get("/ShortStories", BoxController.getHistoriesSS)
+.get("/ShortStories", BoxController.getHistoriesByCategorie)
 
-.get("/WeeklyJarys", BoxController.getHistoriesWJ)
+.get("/WeeklyJarys", BoxController.getHistoriesByCategorie)
 
 .get("/Stories/:id",BoxController.getHistoriesById)
 

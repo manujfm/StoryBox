@@ -9,10 +9,10 @@ var connect=require('./sql-connection'),
       connect.query('SELECT * FROM history WHERE status=1',cb)
     }
 
-    BoxModel.getCategorriesByID=(id,cb)=>{
-
-        var query='SELECT * FROM history WHERE category='+id
-    	connect.query(query,cb)
+    BoxModel.getHistoryByCategory=(id,cb)=>{
+        var query='SELECT * FROM history WHERE category='+id+ " AND status=1"
+    	//console.log(query)
+        connect.query(query,cb)
     }
 
     BoxModel.getHistoriesById=(id,cb)=>{

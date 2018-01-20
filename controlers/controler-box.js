@@ -4,8 +4,56 @@ var BoxModel=require('../model/sql-models'),
     bcrypt=require('bcrypt-nodejs'),
     BoxController=()=>{}
 
+
+    BoxController.getHistoriesByCategorie=(req,res,next)=>{
+    // console.log("RAW DATA: ",req.originalUrl)
+      let url=req.originalUrl,category;
+
+      if(url==="/TrueStory"){
+        category=2
+      }else if (url==="/StoryCubes") {    
+        category=4        
+      }else if (url==="/ShortStories") {
+        category=3
+      }else if (url==="/WeeklyJarys") {
+        category=1
+      }
+
+      //console.log("Category: ",category)
+
+      let history = new Promise((response,reject)=>{
+        BoxModel.getHistoryByCategory(category,(err,row)=>{
+          return (err)?reject(new Error("No se pudo traer las historias")):response(row)
+        })
+      })
+
+      history
+   
+        .then((responsed)=>{
+         let locals={
+           data:responsed
+          }
+
+          if(category===1){
+            res.render("weeklyjarys",locals)
+          }else if (category===2) {    
+            res.render("trueStory",locals)      
+          }else if (category===3) {
+            res.render("shortStories",locals);
+          }else if (category===4) {
+            res.render("storyCubes",locals);
+          }
+
+        })
+
+        .catch((err)=>{
+          res.render('error',{err: err.message})
+          console.log(err)
+        })    
+    }
+
     BoxController.getAll=(req,res,next)=>{
-       let allHistories= new Promise((resolve, reject)=>{
+      let allHistories= new Promise((resolve, reject)=>{
         BoxModel.getAll((err, row)=>{
           return (err)?reject(new Error("No se pudo traer las historias")):resolve(row)
         })
@@ -19,75 +67,81 @@ var BoxModel=require('../model/sql-models'),
           }
           res.send(local)
         })
-
-    }
-    BoxController.getHistoriesTS=(req,res,next)=>{
-    	BoxModel.getCategorriesByID(2,(err,row)=>{
-    		if(err){
-    			let local={
-    				data:'Error de sintaxis'
-    			}
-
-    			res.render('error')
-    		}else{
-    			let locals={
-    				data:row
-    			}
-    			res.render("trueStory",locals);
-    		}
-    	})
+        .catch((err)=>{
+          res.render('error',{err: err.message})
+          console.log(err)
+        })
     }
 
-    BoxController.getHistoriesWJ=(req,res,next)=>{
-    	BoxModel.getCategorriesByID(1,(err,row)=>{
-    		if(err){
-    			let local={
-    				data:'Error de sintaxis'
-    			}
 
-    			res.render('error')
-    		}else{
-    			let locals={
-    				data:row
-    			}
-    			res.render("weeklyjarys",locals);
-    		}
-    	})
-    }
 
-    BoxController.getHistoriesSS=(req,res,next)=>{
-    	BoxModel.getCategorriesByID(3,(err,row)=>{
-    		if(err){
-    			let local={
-    				data:'Error de sintaxis'
-    			}
+    // BoxController.getHistoriesTS=(req,res,next)=>{
+    // 	BoxModel.getCategorriesByID(2,(err,row)=>{
+    // 		if(err){
+    // 			let local={
+    // 				data:'Error de sintaxis'
+    // 			}
 
-    			res.render('error')
-    		}else{
-    			let locals={
-    				data:row
-    			}
-    			res.render("shortStories",locals);
-    		}
-    	})
-    }
+    // 			res.render('error')
+    // 		}else{
+    // 			let locals={
+    // 				data:row
+    // 			}
+    // 			res.render("trueStory",locals);
+    // 		}
+    // 	})
+    // }
 
-    BoxController.getHistoriesSC=(req,res,next)=>{
-    	BoxModel.getCategorriesByID(4,(err,row)=>{
-    		if(err){
-    			let local={
-    				data:'Error de sintaxis'
-    			}
+    // BoxController.getHistoriesWJ=(req,res,next)=>{
+    // 	BoxModel.getCategorriesByID(1,(err,row)=>{
+    // 		if(err){
+    // 			let local={
+    // 				data:'Error de sintaxis'
+    // 			}
 
-    			res.render('error')
-    		}else{
-    			let locals={
-    				data:row
-    			}
-    			res.render("storyCubes",locals);
-    		}
-    	})
-    }
+    // 			res.render('error')
+    // 		}else{
+    // 			let locals={
+    // 				data:row
+    // 			}
+    // 			res.render("weeklyjarys",locals);
+    // 		}
+    // 	})
+    // }
+
+    // BoxController.getHistoriesSS=(req,res,next)=>{
+    // 	BoxModel.getCategorriesByID(3,(err,row)=>{
+    // 		if(err){
+    // 			let local={
+    // 				data:'Error de sintaxis'
+    // 			}
+
+    // 			res.render('error')
+    // 		}else{
+    // 			let locals={
+    // 				data:row
+    // 			}
+    // 			res.render("shortStories",locals);
+    // 		}
+    // 	})
+    // }
+
+    // BoxController.getHistoriesSC=(req,res,next)=>{
+    // 	BoxModel.getCategorriesByID(4,(err,row)=>{
+    // 		if(err){
+    // 			let local={
+    // 				data:'Error de sintaxis'
+    // 			}
+
+    // 			res.render('error')
+    // 		}else{
+    // 			let locals={
+    // 				data:row
+    // 			}
+    // 			res.render("storyCubes",locals);
+    // 		}
+    // 	})
+    // }
 
     BoxController.getHistoriesById=(req,res,next)=>{
   

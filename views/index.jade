@@ -7,13 +7,12 @@ block content
      include nav-bar
 
     main 
-      article(style="border-bottom:2px solid grey; padding-bottom:62px") 
-          #historyContent.row(style="")
-          #historyPagination.col-lg-5.col-lg-offset-5
-          .row#spinnerContainer
-            .col-lg-5.col-lg-offset-4
-               .row#spinnerContainer
-                  .col-lg-5.col-lg-offset-4
+      article(style="border-bottom:2px solid grey; padding-bottom:76px") 
+          #historyContent.row(style="display:none")
+          .col-lg-6.col-lg-offset-4
+            #historyPagination.col-lg-12.col-lg-offset-1(style="display:none; margin-bottom:10px; margin-left:65px")
+          #spinnerContainer.col-xs-4.col-xs-offset-4.col-lg-offset-6
+                #spinnerContainer
                    .preloader-wrapper.big.active
                      .spinner-layer.spinner-blue-only
                        .circle-clipper.left
@@ -22,19 +21,6 @@ block content
                           .circle
                        .circle-clipper.right
                           .circle
-          //- .col-lg-3.col-xm-12(style='')
-          //-   .info(style="margin-left:25px")
-          //-     a(href='Stories/id=#{box.id}')
-          //-       h3#cabeza #{box.title}
-          //-     p#parrafo
-          //-       | #{box.summary}
-          //-     img(src='#{box.url}', alt='#{box.title}', height='240px', width='240px', style='border-radius: 100%; margin-left:25px')
-          //-     .title-post
-          //-     a(href='Stories/id=#{box.id}')
-          //-        h2(align='center') #{box.title}
-          //-     p(align='center') #{box.date}
-          //- -else
-          //-   p No se pudo conectar con la BD 
       article(style="border-bottom:2px solid grey")
         .row
             h1(align='center', style="display:none") Jarys' Story Box 
@@ -43,7 +29,7 @@ block content
 
               p Here, in this box, I talk about <strong>dreams</strong>, <strong>life</strong>, <strong>feelings</strong>, and those stories that need to be <strong>told</strong>. This is a <strong>space</strong> to be <strong>creative</strong>, <strong>honest</strong>, and <strong>free</strong>. 
 
-     //- include back-footer
+      include back-footer
     include footer
     script(src='../js/jquery.js')
     script(src='../js/bootstrap.min.js')

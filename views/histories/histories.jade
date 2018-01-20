@@ -99,11 +99,12 @@ html(lang='en')
             .cubecontainer
               img.image-responsive(src="#{box.imagecube}", alt="#{box.title}")
           .container.contenthistories
-             .col-lg-7.col-lg-offset-2
-                #casa #{box.history} 
-                .row.lolo(style="border-bottom: 1px solid #ECE7E7; margin:55px")
+             .col-lg-9.col-lg-offset-2
+               .col-lg-10
+                 #casa #{box.history} 
+                 .row.lolo(style="border-bottom: 1px solid #ECE7E7; margin:55px")
                  -if(prev!="") 
-                  .col-lg-2.col-xs-3
+                  .col-lg-2.col-xs-5
                    a.btn-lg(href="/Stories/id=#{prev}",type='button', style="color:black")
                      span.glyphicon.glyphicon-menu-left(aria-hidden='true')
                  -if(next!="")

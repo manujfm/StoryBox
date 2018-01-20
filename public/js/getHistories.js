@@ -37,12 +37,12 @@ $(document).ready(function() {
 	         </div>
 	     
 	       </div>`
-	       if(count%8==0||count==tam){
+	       if(count%4==0||count==tam){
               pages.push(content)
 	       }
 	       count++;
 	    }
-       console.log(pages)
+       //console.log(pages)
        $("#historyContent").html(pages[0])
 
        let totalPages=pages.length
@@ -55,21 +55,21 @@ $(document).ready(function() {
             firstLastUse: true,
             first: '←',
             last: '→',
-            wrapClass: 'pagination',
+            wrapClass: 'pagination pagination-lg',
             activeClass: 'active',
             disabledClass: 'disabled',
-            nextClass: 'next',
-            prevClass: 'prev',
-            lastClass: 'last',
-            firstClass: 'first'
+            // nextClass: 'next',
+            // prevClass: 'prev',
+            // lastClass: 'last',
+            // firstClass: 'first'
             }).on('page', function(event, num){
-               $("#historyContent").html(pages[num - 1]); // or some ajax content loading..
+               $("#historyContent").html(pages[num - 1]).css("display","none").fadeIn("slow"); 
             });
 
             setTimeout(()=>{
        	       $("#spinnerContainer").css("display","none")
-		       //$("#historyContent").fadeIn("slow")
-			   //$("#historyPagination").fadeIn("slow")
+		       $("#historyContent").fadeIn("slow")
+			   $("#historyPagination").fadeIn("slow")
 		    },3000)
 
     
