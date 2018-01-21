@@ -1,14 +1,13 @@
-$(document).ready(function() {
 
-	let data=$.ajax({
-		url: 'http://jarystorybox.com/',
+  let data=$.ajax({
+		url:  config.host,
 		type: 'POST',
 	})
 	.done(function(data) {
 
-        data=data.data
+      data=data.data
               
-		let  arr = data.sort(function(a, b) {
+	   	let  arr = data.sort(function(a, b) {
           if(a.id > b.id) return -1;
           if(a.id < b.id) return 1;
           return 0;
@@ -39,6 +38,7 @@ $(document).ready(function() {
 	       </div>`
 	       if(count%4==0||count==tam){
               pages.push(content)
+              content=""
 	       }
 	       count++;
 	    }
@@ -74,8 +74,5 @@ $(document).ready(function() {
 
     
      //console.log(content)
-
-
 	})
 	
-});//END SCRIPT
