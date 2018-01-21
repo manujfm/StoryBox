@@ -1,4 +1,4 @@
 var config={
-   host:"http://localhost:8080/"
+   host:"http://jarystorybox.com/"
 }
 
