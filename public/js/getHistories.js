@@ -36,7 +36,7 @@
 	         </div>
 	     
 	       </div>`
-	       if(count%4==0||count==tam){
+	       if(count%8==0||count==tam){
               pages.push(content)
               content=""
 	       }

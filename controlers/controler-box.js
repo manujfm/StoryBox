@@ -2,11 +2,12 @@
 
 var BoxModel=require('../model/sql-models'),
     bcrypt=require('bcrypt-nodejs'),
+    config=require('./config.json'),
     BoxController=()=>{}
 
 
     BoxController.getHistoriesByCategorie=(req,res,next)=>{
-    // console.log("RAW DATA: ",req.originalUrl)
+      // console.log("RAW DATA: ",req.originalUrl)
       let url=req.originalUrl,category;
 
       if(url==="/TrueStory"){
@@ -72,76 +73,6 @@ var BoxModel=require('../model/sql-models'),
           console.log(err)
         })
     }
-
-
-
-    // BoxController.getHistoriesTS=(req,res,next)=>{
-    // 	BoxModel.getCategorriesByID(2,(err,row)=>{
-    // 		if(err){
-    // 			let local={
-    // 				data:'Error de sintaxis'
-    // 			}
-
-    // 			res.render('error')
-    // 		}else{
-    // 			let locals={
-    // 				data:row
-    // 			}
-    // 			res.render("trueStory",locals);
-    // 		}
-    // 	})
-    // }
-
-    // BoxController.getHistoriesWJ=(req,res,next)=>{
-    // 	BoxModel.getCategorriesByID(1,(err,row)=>{
-    // 		if(err){
-    // 			let local={
-    // 				data:'Error de sintaxis'
-    // 			}
-
-    // 			res.render('error')
-    // 		}else{
-    // 			let locals={
-    // 				data:row
-    // 			}
-    // 			res.render("weeklyjarys",locals);
-    // 		}
-    // 	})
-    // }
-
-    // BoxController.getHistoriesSS=(req,res,next)=>{
-    // 	BoxModel.getCategorriesByID(3,(err,row)=>{
-    // 		if(err){
-    // 			let local={
-    // 				data:'Error de sintaxis'
-    // 			}
-
-    // 			res.render('error')
-    // 		}else{
-    // 			let locals={
-    // 				data:row
-    // 			}
-    // 			res.render("shortStories",locals);
-    // 		}
-    // 	})
-    // }
-
-    // BoxController.getHistoriesSC=(req,res,next)=>{
-    // 	BoxModel.getCategorriesByID(4,(err,row)=>{
-    // 		if(err){
-    // 			let local={
-    // 				data:'Error de sintaxis'
-    // 			}
-
-    // 			res.render('error')
-    // 		}else{
-    // 			let locals={
-    // 				data:row
-    // 			}
-    // 			res.render("storyCubes",locals);
-    // 		}
-    // 	})
-    // }
 
     BoxController.getHistoriesById=(req,res,next)=>{
   
@@ -371,17 +302,9 @@ var insertContent=(req, res, next)=>{
 
      var InsertContent= new Promise((resolve,reject)=>{
 
-         //Server  
-         //const dir_file='/home/storybox/public/doc/images/';
-         //const dir_file_cube='/home/storybox/public/doc/cubesimages/';
-
-         //Ubuntu
-         const dir_file='/opt/lampp/htdocs/storybox/public/doc/images/';
-         const dir_file_cube='/opt/lampp/htdocs/storybox/public/doc/cubesimages/';  
-
-          //Windows
-          //const dir_file='C:/xampp/htdocs/storybox/public/doc/images/';
-          //const dir_file_cube='C:/xampp/htdocs/storybox/public/doc/cubesimages/';
+ 
+         const dir_file=config.path.path;
+         const dir_file_cube=config.path.pathCube;  
 
           var file_system= new Object;
           const date= new Date
@@ -446,150 +369,4 @@ var insertContent=(req, res, next)=>{
  module.exports= BoxController
 
 
-        // //Server  
-       // const dir_file='/home/storybox/public/doc/images/';
-       // const dir_file_cube='/home/storybox/public/doc/cubesimages/';
-
-       // //Ubuntu
-       // //const dir_file='/opt/lampp/htdocs/storybox/public/doc/images/';
-       // //const dir_file_cube='/opt/lampp/htdocs/storybox/public/doc/cubesimages/';  
-
-       //  //Windows
-       //  //const dir_file='C:/xampp/htdocs/storybox/public/doc/images/';
-       //  //const dir_file_cube='C:/xampp/htdocs/storybox/public/doc/cubesimages/';
-        
-       //  var date= new Date();
-        
-       //  let file_name=req.files.file_upload.name;
-       //  let file_type=req.files.file_upload.mimetype;
-
-       //  var file_newname=date.getDate().toString()+(date.getMonth()+1).toString()+date.getFullYear().toString()+date.getHours().toString()+date.getMinutes().toString()+date.getSeconds().toString()+"."+file_type.split("/")[1];
-
-
-       //  req.files.file_upload.mv(dir_file+file_newname,(err)=>{
-           
-       //     if(err){
-       //          console.log(err)
-       //          console.log("Error al subir el archivo")
-       //          res.end('errorr al subir 1')
-       //      }else{
-
-       //        if(req.files.file_upload_cube){
-       //          let file_name_cube=req.files.file_upload_cube.name;
-       //          let file_type_cube=req.files.file_upload_cube.mimetype;        
-       //          var file_newname_cube=date.getDate().toString()+(date.getMonth()+1).toString()+date.getFullYear().toString()+date.getHours().toString()+date.getMinutes().toString()+date.getSeconds().toString()+"."+file_type_cube.split("/")[1];             
-
-       //          req.files.file_upload_cube.mv(dir_file_cube+file_newname_cube,(err)=>{
-       //               if(err){
-       //                  console.log(err)
-       //                  console.log("Error al subir el archivo 2")
-       //                  res.end("error al subir 2")
-       //               }else{
-       //                 BoxModel.insertData(req.body,'doc/images/'+file_newname,'../doc/cubesimages/'+file_newname_cube,(err,row)=>{
-       //                    if (err) {
-       //                        console.log(err)
-       //                        res.end("error en database")
-       //                    }else {
-       //                        res.redirect("/content-manipulation")
-       //                        res.end();
-
-       //                    }
-                        
-       //                 })
-
-       //              }
-
-
-       //           })
-
-       //         }else{
-
-       //          BoxModel.insertData(req.body,'doc/images/'+file_newname,null,(err,row)=>{
-       //            if (err) {
-       //              console.log(err)
-       //              res.end(err)
-       //            }else {
-       //               res.redirect("/content-manipulation")
-       //               res.end();
-
-       //              }
-
-       //          })
-
-
-       //         }
-
-       //       }
-
-       //   })
-
-
-
-
-            // BoxModel.getHistoriesById(req.params.id,(err,row)=>{
-      //  if(err){
-      //    let local={
-      //      data:'Error de sintaxis 1'
-      //    }
-          
-      //    console.log('Error de sintaxis 1')
-      //  }else{
-     //       BoxModel.getNext(req.params.id,(err,next)=>{
-     //          if(err){
-     //            let local={
-     //             data:'Error de sintaxis 2'
-     //            }
-
-     //            console.log('Error de sintaxis 2')
-     //          }else{
-     //            BoxModel.getPrev(req.params.id,(err,prev)=>{
-     //              if(err){
-     //                let local={
-     //                  data:'Error de sintaxis 3'
-     //                }
-     //              }else{
-     //                next=(next=="")?"":next[0].id
-     //                prev=(prev=="")?"":prev[0].id
-
-     //                row[0].licenseScript=row[0].licenseScript.replace(/-/g,"'")
-                
-     //                let local= {
-     //                  data:row,
-     //                  next:next,
-     //                  prev:prev,
-     //                  ref:req.protocol + '://' + req.get('host') + req.originalUrl
-     //                  }
-     //                //console.log(local)
-     //                  res.render("histories/histories",local);
-     //              } 
-     //            })
-     //          }
-     //        })
-     //    }
-     //  })
-
-
-
-
-
-    //     BoxModel.getUser(req.body.user.toLowerCase(),(err,row)=>{
-    //         if(row!=""){
-    //            BoxModel.getUserData(row[0].id,(err,rowData)=>{
-    //              bcrypt.compare(req.body.Password,rowData[0].password,(err,valid)=>{
-    //                 //console.log(valid)
-    //                 var message="Contraseña Incorrecta";
-    //                 if(valid){
-    //                     req.session.times=rowData[0].times
-    //                     req.session.user="manuel" 
-    //                    // console.log(req.session.times)
-    //                     res.redirect("/content-manipulation")
-    //                 }else{
-    //                   res.render("login",{message})}
-    //              })
-    //            })
-    //         }else{
-    //             var message="No está registrado como usuario"
-    //             res.render("login",{message})
-    //         }
-    //     })    
-    // }
+      

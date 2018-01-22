@@ -27,6 +27,11 @@ app
 
 .post("/content-manipulation", BoxController.dataContent)
 
+
+
+
+
+
 .get("/",(req,res)=>{
 	res.render("index")
 })
