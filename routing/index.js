@@ -27,22 +27,14 @@ app
 
 .post("/content-manipulation", BoxController.dataContent)
 
-
-
-
+.post("/TrueStory|StoryCubes|ShortStories|WeeklyJarys",BoxController.getHistoryByCategory)
 
 
 .get("/",(req,res)=>{
 	res.render("index")
 })
 
-.get("/TrueStory", BoxController.getHistoriesByCategorie)
-
-.get("/StoryCubes", BoxController.getHistoriesByCategorie)
-
-.get("/ShortStories", BoxController.getHistoriesByCategorie)
-
-.get("/WeeklyJarys", BoxController.getHistoriesByCategorie)
+.get("/TrueStory|StoryCubes|ShortStories|WeeklyJarys", BoxController.routingByCategory)
 
 .get("/Stories/:id",BoxController.getHistoriesById)
 

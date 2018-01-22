@@ -6,25 +6,27 @@ var BoxModel=require('../model/sql-models'),
     BoxController=()=>{}
 
 
-    BoxController.getHistoriesByCategorie=(req,res,next)=>{
+    BoxController.routingByCategory=(req,res,next)=>{
       // console.log("RAW DATA: ",req.originalUrl)
-      let url=req.originalUrl,category;
+      let url=req.originalUrl;
+       //console.log(url)
 
       if(url==="/TrueStory"){
-        category=2
+        res.render("trueStory")
       }else if (url==="/StoryCubes") {    
-        category=4        
+        res.render("storyCubes")        
       }else if (url==="/ShortStories") {
-        category=3
+        res.render("shortStories")
       }else if (url==="/WeeklyJarys") {
-        category=1
+        res.render("weeklyjarys")
       }
-
-      //console.log("Category: ",category)
-
+    }
+    
+    BoxController.getHistoryByCategory=(req,res,next)=>{
+      const category=req.body.category
       let history = new Promise((response,reject)=>{
         BoxModel.getHistoryByCategory(category,(err,row)=>{
-          return (err)?reject(new Error("No se pudo traer las historias")):response(row)
+           return (err)?reject(new Error('The stories could not be obtained. Sorry :(')):response(row)
         })
       })
 
@@ -34,29 +36,22 @@ var BoxModel=require('../model/sql-models'),
          let locals={
            data:responsed
           }
-
-          if(category===1){
-            res.render("weeklyjarys",locals)
-          }else if (category===2) {    
-            res.render("trueStory",locals)      
-          }else if (category===3) {
-            res.render("shortStories",locals);
-          }else if (category===4) {
-            res.render("storyCubes",locals);
-          }
-
+          res.send(locals)
         })
 
         .catch((err)=>{
-          res.render('error',{err: err.message})
-          console.log(err)
+          let locals={
+            title:"Error :(",
+            description: err.message
+          }
+          res.send(locals)
         })    
     }
 
     BoxController.getAll=(req,res,next)=>{
       let allHistories= new Promise((resolve, reject)=>{
         BoxModel.getAll((err, row)=>{
-          return (err)?reject(new Error("No se pudo traer las historias")):resolve(row)
+          return (err)?reject(new Error('The stories could not be obtained. Sorry :(')):resolve(row)
         })
       })
        
@@ -69,8 +64,11 @@ var BoxModel=require('../model/sql-models'),
           res.send(local)
         })
         .catch((err)=>{
-          res.render('error',{err: err.message})
-          console.log(err)
+        let locals={
+          title:"Error :(",
+          description: err.message
+        }
+        res.render('error',locals)
         })
     }
 
@@ -82,8 +80,9 @@ var BoxModel=require('../model/sql-models'),
 
      let dataHistory= new Promise((resolve, reject)=>{
         BoxModel.getHistoriesById(req.params.id,(err,row)=>{
+          //console.log(row)
           dataHistoryContent.history=(err)?"":row
-          return (err)?reject(new Error('No se pudo obtener las historias')): resolve(true);        
+          return (err|row==""|row==null)?reject(new Error('The stories could not be obtained. Sorry :(')): resolve(true);        
         })
      })
 
@@ -127,8 +126,12 @@ var BoxModel=require('../model/sql-models'),
       })
 
       .catch((err)=>{
-        res.render('error',{err: err.message})
-        console.log(err)
+        let locals={
+          title:"Error :(",
+          description: err.message
+        }
+        res.render('error',locals)
+       // console.log(err)
       })
     }
 
@@ -142,7 +145,7 @@ var BoxModel=require('../model/sql-models'),
 
      var userValidate= new Promise((response, reject)=>{
           BoxModel.getUser(req.body.user.toLowerCase(),(err,row)=>{
-            return (err)? reject(new Error("No se pudo obtener el usuario")): response(row)
+            return (err)? reject(new Error('The user could not be obtained. Sorry :(')): response(row)
           }) 
      })
 
@@ -152,11 +155,11 @@ var BoxModel=require('../model/sql-models'),
         if(responsed!=""){
            return  new Promise((response, reject)=>{
               BoxModel.getUserData(responsed[0].id,(err,rowData)=>{
-                return (err)? reject(new Error("No se pudo obtener la del ususario")):response(rowData)
+                return (err)? reject(new Error('The user could not be obtained. Sorry :(')):response(rowData)
               })
            })
         }else{
-           const message="No esta registrado como usario"
+           const message="Invalid User"
            res.render("login",{message})
            return Promise.reject()
         }   
@@ -167,10 +170,10 @@ var BoxModel=require('../model/sql-models'),
         return new Promise((response,reject)=>{
           bcrypt.compare(req.body.Password,responsed[0].password,(err,valid)=>{
             if(err){
-              return reject(new Error("No se pudo comparar las password"))
+              return reject(new Error("Password Error"))
             }
 
-            const message="Contraseña Incorrecta";
+            const message="Invalid Password";
             if(valid){
               req.session.times=responsed[0].times
               req.session.user="manuel" 
@@ -188,7 +191,12 @@ var BoxModel=require('../model/sql-models'),
       })
 
       .catch((err)=>{
-         console.log(err.message)
+      let locals={
+          title:"Error :(",
+          description: err.message
+        }
+        res.render('error',locals)
+       
       })
     }
 
@@ -196,11 +204,12 @@ var BoxModel=require('../model/sql-models'),
         //console.log(req.session.user)
        BoxModel.getAll((err,row)=>{
           if(err){
-            let local={
-              data:'Error de sintaxis'
+            let locals={
+              title:"Error :(",
+              description: err.message
             }
-
-            res.render('error')
+            res.render('error',locals)
+          
           }else{
 
             let locals={
@@ -255,7 +264,12 @@ var BoxModel=require('../model/sql-models'),
 var deleteContent=(req, res, next)=>{
   BoxModel.deleteData(req.body.idDel, req.body,(err,row)=>{
     if(err){
-      console.log("Error de sintaxis(DELETE)")
+      let locals={
+          title:"Error :(",
+          description: err.message
+        }
+        res.render('error',locals)
+      
     }else{
        res.send("Delete exitoso")
        res.redirect("/content-manipulation")
@@ -267,8 +281,13 @@ var deleteContent=(req, res, next)=>{
 var modifyConten=(req, res, next)=>{
    BoxModel.updateData(req.body.idMod, req.body,(err,row)=>{
      if(err){
-       console.log("Error de sintaxis(UPDATE)")
-     }else{
+        let locals={
+          title:"Error :(",
+          description: err.message
+        }
+        res.render('error',locals)
+      
+        }else{
        console.log("Update exitoso")
        res.redirect("/content-manipulation")
        res.end();
@@ -281,11 +300,12 @@ var getModifyContent=(req,res,next)=>{
 
     BoxModel.getHistoriesById("id="+req.body.idHistory,(err,row)=>{
         if(err){
-          let local={
-            data:'Error de sintaxis 1'
-          }
-          
-          console.log('Error de sintaxis 1')
+        let locals={
+          title:"Error :(",
+          description: err.message
+        }
+        res.render('error',locals)
+      
         }else{
 
           let local={
@@ -349,7 +369,7 @@ var insertContent=(req, res, next)=>{
         .then((resolved)=>{
           return new Promise((resolve,eject)=>{
                BoxModel.insertData(req.body,'doc/images/'+resolved[0].file_newname,'../doc/cubesimages/'+resolved[1],(err,row)=>{
-               return (err)? reject(new Error('No se puso insertar la data junto al Cube')):resolve(true)
+               return (err)? reject(new Error('No se pudo insertar la data junto al Cube')):resolve(true)
             })
           })
 
@@ -361,8 +381,12 @@ var insertContent=(req, res, next)=>{
         })
 
         .catch((err)=>{
-          console.log(err.message);
-          res.end()
+          let locals={
+            title:"Error :(",
+            description: err.message
+          }
+          res.render('error',locals)
+        
         })
 }
 

@@ -1,11 +1,33 @@
 
+  const url=window.location
+  const path=url.pathname
+  let category
+ 
+   if(path==="/TrueStory"){
+    category=2
+  }else if (path==="/StoryCubes") {    
+    category=4        
+  }else if (path==="/ShortStories") {
+    category=3
+  }else if (path==="/WeeklyJarys") {
+    category=1
+  }
+   arr={"category":category};
   let data=$.ajax({
-		url:  window.location,
+		url:  url,
 		type: 'POST',
+    data: arr
 	})
 	.done(function(data) {
 
       data=data.data
+       if(data==""){
+        console.log('efwefwef')
+        $("#historyContent").html("<h1 align=center>Working on that :)</h1>")
+           $("#spinnerContainer").css("display","none")
+           $("#historyContent").fadeIn("slow")
+        return 0
+       }
 
 	   	let  arr = data.sort(function(a, b) {
           if(a.id > b.id) return -1;
@@ -73,6 +95,6 @@
 		    },3000)
 
     
-     //console.log(content)
+     console.log(content)
 	})
 	

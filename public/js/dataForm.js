@@ -7,7 +7,7 @@
 	     var form=$("#ModData").find(':input'), arr={"idHistory":form[0].value};
 
     		jQuery.ajax({
-    		      url: config.host+'content-manipulation',
+    		      url: window.location,
     		      data: arr,
     		      type: 'POST',
     		    }).then(function(response) {
@@ -46,7 +46,7 @@ function delBtnFunction(id){
         arr={"idDel":id};
         elemento2.parents("tr").fadeOut('slow')
         jQuery.ajax({
-              url: config.host+'content-manipulation',
+              url: window.location,
               data: arr,
               type: 'POST',
             }).then(function(response) {
