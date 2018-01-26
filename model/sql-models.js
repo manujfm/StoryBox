@@ -6,11 +6,11 @@ var connect=require('./sql-connection'),
 
     BoxModel.getAll=(cb)=>{
 
-      connect.query('SELECT * FROM history WHERE status=1',cb)
+      connect.query('SELECT * FROM history WHERE status=1 ORDER BY date DESC',cb)
     }
 
     BoxModel.getHistoryByCategory=(id,cb)=>{
-        var query='SELECT * FROM history WHERE category='+id+ " AND status=1"
+        var query='SELECT * FROM history WHERE category='+id+ " AND status=1 ORDER BY date DESC"
     	//console.log(query)
         connect.query(query,cb)
     }
@@ -22,13 +22,13 @@ var connect=require('./sql-connection'),
     }
 
     BoxModel.getPrev=(id,cb)=>{
-      var query="SELECT id FROM history WHERE id <"+id.split("=")[1]+" AND status=1 ORDER BY id DESC LIMIT 1;";
+      var query="SELECT id FROM history WHERE id <"+id.split("=")[1]+" AND status=1 ORDER BY date DESC LIMIT 1;";
       //  console.log(query)
         connect.query(query,cb)
     }
 
     BoxModel.getNext=(id,cb)=>{
-      var query="SELECT id FROM history WHERE id >"+id.split("=")[1]+" AND status=1 ORDER BY id ASC LIMIT 1;";
+      var query="SELECT id FROM history WHERE id >"+id.split("=")[1]+" AND status=1 ORDER BY date DESC LIMIT 1;";
        // console.log(query)
         connect.query(query,cb)
     }
@@ -83,6 +83,7 @@ var replace=(string)=>{
    var result= string.replace(/"|'/g,'-')
     return result;
 }
+
 
 
  module.exports= BoxModel 

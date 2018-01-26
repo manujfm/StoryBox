@@ -38,6 +38,7 @@
         let content="", count=1, pages=[], tam=arr.length;    
        
         for (let box of arr){
+          box.date=dateTransform(box.date)
          content+= `
 	       <div class="col-lg-3 col-xm-12">
 
@@ -95,6 +96,16 @@
 		    },3000)
 
     
-     console.log(content)
+    // console.log(content)
 	})
 	
+
+  function dateTransform(date){
+     let dateParse=date.split("-")
+    const months=["Jan", "Feb", "Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+    const Ayear=dateParse[0]
+    const Amont=dateParse[1]
+    const Aday=dateParse[2].split("T")[0]
+    let tDate=months[parseInt(Amont)-1]+" "+Aday+" "+Ayear   
+    return tDate
+}
