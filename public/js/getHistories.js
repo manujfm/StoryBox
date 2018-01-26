@@ -80,7 +80,7 @@
 	
 
   function dateTransform(date){
-     let dateParse=date.split("-")
+     let dateParse=date.split("T")[0].split('-')
     const months=["Jan", "Feb", "Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
     const Ayear=dateParse[0]
     const Amont=dateParse[1]

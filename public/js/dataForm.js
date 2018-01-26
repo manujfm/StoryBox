@@ -22,7 +22,7 @@
                         form[0].value=data.data[0].id
                         form[1].value=data.data[0].history
                         form[2].value=data.data[0].summary
-                        form[3].value=data.data[0].date
+                        form[3].value=data.data[0].date.split("T")[0]
                         form[4].value=data.data[0].title
                         form[5].value=data.data[0].category
                         form[6].value=data.data[0].licenseDiv
