@@ -21,7 +21,7 @@
 	.done(function(data) {
 
       let arr=data.data
-       if(data==""){
+       if(arr==""){
       //  console.log('efwefwef')
         $("#historyContent").html("<h1 align=center>Working on that :)</h1>")
            $("#spinnerContainer").css("display","none")
