@@ -32,19 +32,19 @@ block content
                  .row
                    .col-lg-8.col-lg-offset-2(style="margin-top:10px")
                      label(for='user') Historia
-                     textarea#user.form-control(type='text', name='history', placeholder='Historia')
+                     textarea#user.form-control(type='text', name='history', placeholder='Historia', required)
                  .row
                    .col-lg-8.col-lg-offset-2(style="margin-top:10px")
                      label(for='password') Resumen
-                     textarea#resumen.form-control(type='text', name='summary', placeholder='Resumen')
+                     textarea#resumen.form-control(type='text', name='summary', placeholder='Resumen', required)
                  .row
                    .col-lg-8.col-lg-offset-2(style="margin-top:10px")
                      label(for='password') Titulo
-                     input#password.form-control(type='text', name='title', placeholder='titulo')
+                     input#password.form-control(type='text', name='title', placeholder='titulo', required)
                  .row
                    .col-lg-8.col-lg-offset-2(style="margin-top:10px")
                      label(for='password') Fecha
-                     input#password.form-control(type='date', name='date', placeholder='fecha')  
+                     input#password.form-control(type='date', name='date', placeholder='fecha', required)  
                  .row
                    .col-lg-8.col-lg-offset-2(style="margin-top:10px")
                     label(for="category") Categoria
@@ -56,11 +56,11 @@ block content
                   .row
                     .col-lg-8.col-lg-offset-2(style="margin-top:10px")
                       label(for="divLicense") Div Licencia
-                      input#divLicence.form-control(name="divLicence", placeholder="Codico DIV de la licencia")    
+                      input#divLicence.form-control(name="divLicence", placeholder="Codico DIV de la licencia", required)    
                   .row
                     .col-lg-8.col-lg-offset-2(style="margin-top:10px")
                       label(for="scriptLicense") Script Licencia
-                      input#scripLicence.form-control(name="scriptLicence", placeholder="Codico Script de la licencia")                      
+                      input#scripLicence.form-control(name="scriptLicence", placeholder="Codico Script de la licencia", required)                      
                   .row
                    .col-lg-8.col-lg-offset-2(style="margin-top:10px")                 
                     label(for='data_valid_cube') Valid Cube
@@ -70,7 +70,7 @@ block content
                  .row
                    .col-lg-8.col-lg-offset-2(style="margin-top:10px")
                      label(for="file_upload") Upload
-                     input#file_upload(type="file", name="file_upload")
+                     input#file_upload(type="file", name="file_upload", required)
 
                  .row
                     .col-lg-8.col-lg-offset-2#file_upload_container(style="display:none")

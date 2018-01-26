@@ -5,13 +5,9 @@
 	})
 	.done(function(data) {
 
-      data=data.data
+     let arr=data.data
 
-	   	let  arr = data.sort(function(a, b) {
-          if(a.id > b.id) return -1;
-          if(a.id < b.id) return 1;
-          return 0;
-        });
+	  
    
         let content="", count=1, pages=[], tam=arr.length;    
        
