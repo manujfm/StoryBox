@@ -53,12 +53,6 @@ html(lang='en')
             a(href='https://t.me/Ajarysj', target='_blank')
               img(src='../png/001-telegram.png', alt='Telegram-Icon')
           .navbar.pull-right
-            a(href='https://www.wattpad.com/user/AJarys', target='_blank')
-              img(src='../png/001-books.png', alt='Telegram-Icon')
-          .navbar.pull-right
-            a(href='https://tapas.io/ajarysj', target='_blank')
-              img(src='../png/002-library.png', alt='Telegram-Icon')
-          .navbar.pull-right
             a(href='https://www.youtube.com/channel/UCn1I9oIDR92RsNkW3WSYpPg?disable_polymer=true', target='_blank')
               img(src='../png/005-youtube.png', alt='Youtube-Icon')
       .row
@@ -94,7 +88,7 @@ html(lang='en')
       -each box in data
           .title-header
               h1(align='center') #{box.title}
-              h3(align='center') By A. Jarys.
+              h2(align='center') By A. Jarys.
           -if (data[0].validstory)
             .cubecontainer
               img.image-responsive(src="#{box.imagecube}", alt="#{box.title}")
