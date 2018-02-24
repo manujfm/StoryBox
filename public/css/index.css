@@ -68,7 +68,7 @@
             -moz-transition:margin 0.3s;
         }
 
-        #cabeza{
+        #headCont{
             position: absolute;
             margin-top: 90px;
             font-size: 15px;
@@ -83,7 +83,7 @@
             margin-left: 16px;
         }
 
-        .col-lg-3:hover #cabeza{
+        .col-lg-3:hover #headCont{
             margin-left: 10px;
         }
 
@@ -120,8 +120,8 @@
 
         .title-post>a>h2{
             font-size: 15px;
-            margin: 5px 0 0 0;
-            color: grey;
+/*            margin: 5px 0 0 0;
+*/            color: grey;
             text-decoration: none
         }
         .title-post>a>h2:hover{
@@ -201,5 +201,6 @@
 .license{
     margin-top: -50px;
     margin-bottom:50px;
-    padding: 10px
+    padding: 10px;
+    max-width: 160px
 }
