@@ -15,7 +15,7 @@
 
         box.date=dateTransform(box.date)
          content+= `
-	       <div class="col-lg-3 col-lg-offset-0 col-xs-9 col-xs-offset-2">
+	       <div class="col-lg-3 col-lg-offset-0 col-xs-9 col-xs-offset-1">
            <div class="col-lg-12">
     	          <div class="info">
     	           <a href="Stories/id=${box.id}">
@@ -27,7 +27,7 @@
     	         <img src="${box.url}" alt="${box.title}" height="240px" width="240px" style="border-radius: 100%;"/>
            </div>
 
-           <div class="col-lg-8  col-lg-offset-2 col-xs-8 col-xs-offset-2">
+           <div class="col-lg-8  col-lg-offset-2 col-xs-9 col-xs-offset-3">
             <div class="title-post">
               <a href="Stories/id=${box.id}">
                 <h2 align="center">${box.title}</h2>
