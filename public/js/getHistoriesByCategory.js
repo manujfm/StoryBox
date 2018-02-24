@@ -40,7 +40,7 @@
 
 	         <div style="margin-left:25px" class="info">
 	           <a href="Stories/id=${box.id}">
-	           <h3 id="cabeza">${box.title}</h3>
+	           <h3 id="headCont">${box.title}</h3>
 	           </a>
 	           <p id="parrafo">${box.summary}</p>
 	         </div>
